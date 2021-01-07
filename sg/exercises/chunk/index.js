@@ -24,7 +24,6 @@ function chunk(array, size) {
 	// 	}
 	// }
 	// return chunked;
-
 	// the same solution refactored:
 	// const chunked = [];
 	// for (let element of array) {
@@ -36,7 +35,6 @@ function chunk(array, size) {
 	// 	}
 	// }
 	// return chunked;
-
 	// my solution with slice:
 	// const chuncked = [];
 	// for (let i = 0; i < array.length; i = i + size) {
@@ -44,7 +42,6 @@ function chunk(array, size) {
 	// 	chuncked.push(littleChunk);
 	// }
 	// return chuncked;
-
 	// second solution with slice:
 	// const chuncked = [];
 	// let index = 0;
@@ -54,7 +51,6 @@ function chunk(array, size) {
 	// 	index = index + size;
 	// }
 	// return chuncked;
-
 	// refactored:
 	// const chuncked = [];
 	// let index = 0;
@@ -62,7 +58,6 @@ function chunk(array, size) {
 	// 	chuncked.push(array.slice(index, index + size));
 	// 	index += size;
 	// }
-
 	//REVISION:
 	// const chuncked = [];
 	// for (let item of array) {
@@ -73,14 +68,24 @@ function chunk(array, size) {
 	// 		last.push(item);
 	// 	}
 	// }
+	// const chuncked = [];
+	// for (let i = 0; i < array.length; i += size) {
+	// 	const chunk = array.slice(i, i + size);
+	// 	chuncked.push(chunk);
+	// }
+	// return chuncked;
 
-	const chuncked = [];
-	for (let i = 0; i < array.length; i += size) {
-		const chunk = array.slice(i, i + size);
-		chuncked.push(chunk);
+	// create result array
+	const resArr = [];
+	// iterate thorugh the input array
+	for (let i = 0; i < array.length; i++) {
+		if (i === 0 || i % size === 0) {
+			resArr.push([array[i]]);
+		} else {
+			resArr[resArr.length - 1].push(array[i]);
+		}
 	}
-
-	return chuncked;
+	return resArr;
 }
 
 module.exports = chunk;

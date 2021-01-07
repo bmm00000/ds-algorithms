@@ -126,17 +126,33 @@
 // 	return count;
 // }
 
-function countUniqueValues(arr) {
-	if (arr.length === 0) return 0;
-	let l = 0;
-	for (let r = 1; r < arr.length; r++) {
-		if (arr[l] !== arr[r]) {
-			l++;
-			arr[l] = arr[r];
+// function countUniqueValues(arr) {
+// 	if (arr.length === 0) return 0;
+// 	let l = 0;
+// 	for (let r = 1; r < arr.length; r++) {
+// 		if (arr[l] !== arr[r]) {
+// 			l++;
+// 			arr[l] = arr[r];
+// 		}
+// 	}
+// 	return l + 1;
+// }
+
+function charCounter(str) {
+	const map = {};
+	for (let char of str) {
+		newChar = char.toLowerCase();
+		if (map[newChar]) {
+			map[newChar]++;
+		} else {
+			map[newChar] = 1;
 		}
 	}
-	return l + 1;
+	return map;
 }
 
-// PLAN:
-// understand (inputs, outputs), examples (also extreme ones), break down(pseudo code), solve, simplify, refactor
+// PLAN FOR PROBLEM SOLVING:
+// understand (inputs, outputs), examples (also extreme ones), break down (pseudo code), solve, simplify, refactor (readibility, performance...)
+
+// COMMON PROBLEM SOLVING PATTERNS:
+//
