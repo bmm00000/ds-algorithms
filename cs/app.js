@@ -138,21 +138,36 @@
 // 	return l + 1;
 // }
 
-function charCounter(str) {
-	const map = {};
-	for (let char of str) {
-		newChar = char.toLowerCase();
-		if (map[newChar]) {
-			map[newChar]++;
-		} else {
-			map[newChar] = 1;
-		}
-	}
-	return map;
-}
+// function charCounter(str) {
+// 	const map = {};
+// 	for (let char of str) {
+// 		newChar = char.toLowerCase();
+// 		if (map[newChar]) {
+// 			map[newChar]++;
+// 		} else {
+// 			map[newChar] = 1;
+// 		}
+// 	}
+// 	return map;
+// }
 
 // PLAN FOR PROBLEM SOLVING:
 // understand (inputs, outputs), examples (also extreme ones), break down (pseudo code), solve, simplify, refactor (readibility, performance...)
 
 // COMMON PROBLEM SOLVING PATTERNS:
 //
+// frequency counter pattern:
+const same = (arr1, arr2) => {
+	for (let num1 of arr1) {
+		const arr = [];
+		for (let num2 of arr2) {
+			if (num2 === num1 * num1) {
+				arr.push(true);
+			}
+		}
+		if (!arr.length) {
+			return false;
+		}
+	}
+	return true;
+};
