@@ -158,6 +158,9 @@
 //
 // frequency counter pattern:
 const same = (arr1, arr2) => {
+	if (arr1.length !== arr2.length) {
+		return false;
+	}
 	for (let num1 of arr1) {
 		const arr = [];
 		for (let num2 of arr2) {
