@@ -161,20 +161,64 @@ class LinkedList {
 	}
 
 	removeAt(integer) {
+		// if (!this.head) {
+		// 	return;
+		// }
+
+		// const node = this.getAt(integer);
+		// const previousNode = this.getAt(integer - 1);
+		// const nextNode = this.getAt(integer + 1);
+
+		// if (node === this.head) {
+		// 	this.head = this.head.next;
+		// 	return;
+		// }
+
+		// previousNode.next = nextNode;
+
 		if (!this.head) {
-			return null;
-		}
-
-		const node = this.getAt(integer);
-		const previousNode = this.getAt(integer - 1);
-		const nextNode = this.getAt(integer + 1);
-
-		if (node === this.head) {
-			this.head = null;
 			return;
 		}
 
-		previousNode.next = nextNode;
+		if (integer === 0) {
+			this.head = this.head.next;
+			return;
+		}
+
+		const previous = this.getAt(integer - 1);
+
+		if (!previous || !previous.next) {
+			return;
+		}
+		previous.next = previous.next.next;
+	}
+
+	insertAt(data, integer) {
+		const newNode = new Node(data);
+
+		if (!this.head) {
+			this.head = newNode;
+			return;
+		}
+
+		const previousNode = this.getAt(integer - 1);
+		const nextNode = this.getAt(integer);
+
+		if (!previousNode) {
+			this.head = newNode;
+			newNode.next = nextNode;
+			return;
+		}
+
+		if (!nextNode) {
+			const size = this.size();
+			const lastNode = this.getAt(size - 1);
+			lastNode.next = newNode;
+			return;
+		}
+
+		previousNode.next = newNode;
+		newNode.next = nextNode;
 	}
 }
 
