@@ -194,31 +194,52 @@ class LinkedList {
 	}
 
 	insertAt(data, integer) {
-		const newNode = new Node(data);
+		// const newNode = new Node(data);
+
+		// if (!this.head) {
+		// 	this.head = newNode;
+		// 	return;
+		// }
+
+		// const previousNode = this.getAt(integer - 1);
+		// const nextNode = this.getAt(integer);
+
+		// if (!previousNode) {
+		// 	this.head = newNode;
+		// 	newNode.next = nextNode;
+		// 	return;
+		// }
+
+		// if (!nextNode) {
+		// 	const lastNode = this.getLast();
+		// 	lastNode.next = newNode;
+		// 	return;
+		// }
+
+		// previousNode.next = newNode;
+		// newNode.next = nextNode;
 
 		if (!this.head) {
-			this.head = newNode;
+			this.head = new Node(data);
 			return;
 		}
 
-		const previousNode = this.getAt(integer - 1);
-		const nextNode = this.getAt(integer);
-
-		if (!previousNode) {
-			this.head = newNode;
-			newNode.next = nextNode;
+		if (integer === 0) {
+			this.head = new Node(data, this.head);
 			return;
 		}
 
-		if (!nextNode) {
-			const size = this.size();
-			const lastNode = this.getAt(size - 1);
-			lastNode.next = newNode;
-			return;
-		}
+		const previous = this.getAt(integer - 1) || this.getLast();
+		const node = new Node(data, previous.next);
+		previous.next = node;
+		return;
+	}
 
-		previousNode.next = newNode;
-		newNode.next = nextNode;
+	forEach(func) {
+		for (let i = 0; i < this.size(); i++) {
+			const node = this.getAt(i);
+			func(node, i);
+		}
 	}
 }
 
