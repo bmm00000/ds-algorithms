@@ -30,13 +30,26 @@ function reverseInt(n) {
 	// second solution:
 	// const reversedStr = n.toString().split('').reverse().join('');
 	// return parseInt(reversedStr) * Math.sign(n);
+	// 	const revnStr = n.toString().split('').reverse().join('');
+	// 	if (n < 0) {
+	// 		return parseInt(revnStr) * -1;
+	// 	} else {
+	// 		return parseInt(revnStr);
+	// 	}
+	// REVISION:
+	// let newNumStr = '';
+	// for (let char of n.toString()) {
+	// 	if (isNaN(parseInt(char))) {
+	// 		continue;
+	// 	} else {
+	// 		newNumStr = char + newNumStr;
+	// 	}
+	// }
+	// return parseInt(newNumStr) * Math.sign(n);
 
-	const revnStr = n.toString().split('').reverse().join('');
-	if (n < 0) {
-		return parseInt(revnStr) * -1;
-	} else {
-		return parseInt(revnStr);
-	}
+	const nStr = n.toString().split('').reverse().join('');
+
+	return parseInt(nStr) * Math.sign(n);
 }
 
 module.exports = reverseInt;

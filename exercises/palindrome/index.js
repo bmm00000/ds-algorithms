@@ -13,13 +13,17 @@ function palindrome(str) {
 	// 	reversed = char + reversed;
 	// }
 	// return str === reversed;
-
 	// second solution:
 	// return str.split('').every((char, i) => {
 	// 	return char === str[str.length - i - 1];
 	// });
+	// return str.split('').reverse().join('') === str;
+	// REVISION:
+	// return str.split('').reverse().join('') === str;
 
-	return str.split('').reverse().join('') === str;
+	return str.split('').every((char, i) => {
+		return char === str[str.length - 1 - i];
+	});
 }
 
 module.exports = palindrome;

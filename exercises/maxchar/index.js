@@ -39,23 +39,38 @@ function maxChar(str) {
 	// 	}
 	// }
 	// return maxChar;
+	// const map = {};
+	// for (let char of str) {
+	// 	map[char] = map[char] + 1 || 1;
+	// }
+	// let counter = 0;
+	// for (let key in map) {
+	// 	if (map[key] > counter) {
+	// 		counter = map[key];
+	// 	}
+	// }
+	// for (let key in map) {
+	// 	if (map[key] === counter) {
+	// 		return key;
+	// 	}
+	// }
+	// REVISION:
+	const strObj = {};
+	let maxFreq = 0;
+	let maxChar = '';
 
-	const map = {};
 	for (let char of str) {
-		map[char] = map[char] + 1 || 1;
+		// strObj[char] ? strObj[char]++ : (strObj[char] = 1);
+		strObj[char] = strObj[char]++ || 1;
 	}
 
-	let counter = 0;
-	for (let key in map) {
-		if (map[key] > counter) {
-			counter = map[key];
+	for (let key in strObj) {
+		if (strObj[key] > maxFreq) {
+			maxFreq = strObj[key];
+			maxChar = key;
 		}
 	}
-	for (let key in map) {
-		if (map[key] === counter) {
-			return key;
-		}
-	}
+	return maxChar;
 }
 
 module.exports = maxChar;
