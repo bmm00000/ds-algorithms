@@ -47,9 +47,19 @@ function reverseInt(n) {
 	// }
 	// return parseInt(newNumStr) * Math.sign(n);
 
-	const nStr = n.toString().split('').reverse().join('');
+	// const nStr = n.toString().split('').reverse().join('');
 
-	return parseInt(nStr) * Math.sign(n);
+	// return parseInt(nStr) * Math.sign(n);
+
+	// const reversedStr = n.toString().split('').reverse().join('');
+
+	// return parseInt(reversedStr) * Math.sign(n);
+
+	let reversedStr = '';
+	for (let char of n.toString()) {
+		reversedStr = char + reversedStr;
+	}
+	return parseInt(reversedStr) * Math.sign(n);
 }
 
 module.exports = reverseInt;

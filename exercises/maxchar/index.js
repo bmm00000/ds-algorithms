@@ -55,21 +55,38 @@ function maxChar(str) {
 	// 	}
 	// }
 	// REVISION:
-	const strObj = {};
-	let maxFreq = 0;
-	let maxChar = '';
+	// const strObj = {};
+	// let maxFreq = 0;
+	// let maxChar = '';
 
+	// for (let char of str) {
+	// 	// strObj[char] ? strObj[char]++ : (strObj[char] = 1);
+	// 	strObj[char] = strObj[char]++ || 1;
+	// }
+
+	// for (let key in strObj) {
+	// 	if (strObj[key] > maxFreq) {
+	// 		maxFreq = strObj[key];
+	// 		maxChar = key;
+	// 	}
+	// }
+	// return maxChar;
+
+	strMap = {};
 	for (let char of str) {
-		// strObj[char] ? strObj[char]++ : (strObj[char] = 1);
-		strObj[char] = strObj[char]++ || 1;
+		strMap[char] = strMap[char]++ || 1;
 	}
 
-	for (let key in strObj) {
-		if (strObj[key] > maxFreq) {
-			maxFreq = strObj[key];
-			maxChar = key;
+	let maxChar = '';
+	let maxFreq = 0;
+
+	for (let char in strMap) {
+		if (strMap[char] > maxFreq) {
+			maxFreq = strMap[char];
+			maxChar = char;
 		}
 	}
+
 	return maxChar;
 }
 

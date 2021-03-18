@@ -74,18 +74,55 @@ function chunk(array, size) {
 	// 	chuncked.push(chunk);
 	// }
 	// return chuncked;
-
 	// create result array
-	const resArr = [];
-	// iterate thorugh the input array
-	for (let i = 0; i < array.length; i++) {
-		if (i === 0 || i % size === 0) {
-			resArr.push([array[i]]);
-		} else {
-			resArr[resArr.length - 1].push(array[i]);
-		}
+	// const resArr = [];
+	// // iterate thorugh the input array
+	// for (let i = 0; i < array.length; i++) {
+	// 	if (i === 0 || i % size === 0) {
+	// 		resArr.push([array[i]]);
+	// 	} else {
+	// 		resArr[resArr.length - 1].push(array[i]);
+	// 	}
+	// }
+	// return resArr;
+
+	// REVISION:
+
+	// newArr = [];
+
+	// for (let num of array) {
+	// 	const last = newArr[newArr.length - 1];
+	// 	if (!last || last.length === size) {
+	// 		newArr.push([num]);
+	// 	} else {
+	// 		last.push(num);
+	// 	}
+	// }
+
+	// return newArr;
+
+	//
+
+	// const newArr = [];
+
+	// for (let i = 0; i < array.length; i += size) {
+	// 	const chunk = array.slice(i, i + size);
+	// 	newArr.push(chunk);
+	// }
+
+	// return newArr;
+
+	//
+
+	const newArr = [];
+
+	let index = 0;
+	while (index < array.length) {
+		newArr.push(array.slice(index, index + size));
+		index += size;
 	}
-	return resArr;
+
+	return newArr;
 }
 
 module.exports = chunk;
