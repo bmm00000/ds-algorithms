@@ -68,67 +68,127 @@ function anagrams(stringA, stringB) {
 	// 	}
 	// 	return charMap;
 	// }
-
 	// second solution:
 	// const strA = stringA.replace(/[^\w]/g, '').toLowerCase();
 	// const strB = stringB.replace(/[^\w]/g, '').toLowerCase();
-
 	// const strAsorted = strA.split('').sort();
 	// const strBsorted = strB.split('').sort();
-
 	// if (strAsorted.length !== strBsorted.length) {
 	// 	return false;
 	// }
-
 	// for (let i = 0; i < strAsorted.length; i++) {
 	// 	if (strAsorted[i] !== strBsorted[i]) {
 	// 		return false;
 	// 	}
 	// }
 	// return true;
-
 	// another solution:
 	// const strA = stringA.replace(/[^\w]/g, '').toLowerCase();
 	// const strB = stringB.replace(/[^\w]/g, '').toLowerCase();
-
 	// const strAsorted = strA.split('').sort().join('');
 	// const strBsorted = strB.split('').sort().join('');
-
 	// if (strAsorted === strBsorted) {
 	// 	return true;
 	// }
-
 	// return cleanString(stringA) === cleanString(stringB);
-
 	// function cleanString(str) {
 	// 	return str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
 	// }
+	// const mapA = mapper(cleaner(stringA));
+	// const mapB = mapper(cleaner(stringB));
+	// for (let key in mapA) {
+	// 	if (mapA[key] !== mapB[key]) {
+	// 		return false;
+	// 	}
+	// }
+	// for (let key in mapB) {
+	// 	if (mapB[key] !== mapA[key]) {
+	// 		return false;
+	// 	}
+	// }
+	// return true;
+	// function cleaner(str) {
+	// 	return str.replace(/[^\w]/g, '').toLowerCase();
+	// }
+	// function mapper(str) {
+	// 	const map = {};
+	// 	for (let char of str) {
+	// 		map[char] = map[char] + 1 || 1;
+	// 	}
+	// 	return map;
+	// }
+	// REVISION:
+	// word.replace(/[^\w]/g, "").toLowerCase()
 
-	const mapA = mapper(cleaner(stringA));
-	const mapB = mapper(cleaner(stringB));
+	// my solution:
+	// const cleanStr = (str) => {
+	// 	return str.replace(/[^\w]/g, '').toLowerCase();
+	// };
 
-	for (let key in mapA) {
-		if (mapA[key] !== mapB[key]) {
-			return false;
-		}
-	}
-	for (let key in mapB) {
-		if (mapB[key] !== mapA[key]) {
-			return false;
-		}
-	}
-	return true;
+	// const strA = cleanStr(stringA);
+	// const strB = cleanStr(stringB);
 
-	function cleaner(str) {
-		return str.replace(/[^\w]/g, '').toLowerCase();
-	}
+	// if (strA.length !== strB.length) {
+	// 	return false;
+	// }
 
-	function mapper(str) {
-		const map = {};
-		for (let char of str) {
-			map[char] = map[char] + 1 || 1;
-		}
-		return map;
+	// const getMap = (str) => {
+	// 	strMap = {};
+	// 	for (let char of str) {
+	// 		strMap[char] = strMap[char]++ || 1;
+	// 	}
+	// 	return strMap;
+	// };
+
+	// strAmap = getMap(strA);
+	// strBmap = getMap(strB);
+
+	// for (let char in strAmap) {
+	// 	if (!(char in strBmap)) {
+	// 		return false;
+	// 	}
+
+	// 	if (strAmap[char] !== strBmap[char]) {
+	// 		return false;
+	// 	}
+	// }
+
+	// return true;
+
+	//
+
+	// const strAmap = mapper(stringA);
+	// const strBmap = mapper(stringB);
+
+	// if (Object.keys(strAmap).length !== Object.keys(strBmap).length) {
+	// 	return false;
+	// }
+
+	// for (let char in strAmap) {
+	// 	if (strAmap[char] !== strBmap[char]) {
+	// 		return false;
+	// 	}
+	// }
+
+	// return true;
+
+	// // watch out! if you declare an arrow function, it does not hoist it!
+	// function mapper(str) {
+	// 	const strMap = {};
+	// 	for (let char of str.replace(/[^\w]/g, '').toLowerCase()) {
+	// 		strMap[char] = strMap[char]++ || 1;
+	// 	}
+	// 	return strMap;
+	// }
+
+	//
+
+	// sort() works with arrays, not strings!
+
+	return cleanStr(stringA) === cleanStr(stringB);
+
+	function cleanStr(str) {
+		return str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
 	}
 }
 

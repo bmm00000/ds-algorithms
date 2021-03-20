@@ -49,16 +49,24 @@ function reverse(str) {
 	// return str.split('').reverse().join('');
 	// THIRD SOLUTION:
 	// return str.split('').reduce((reversed, curr) => curr + reversed, '');
+	//
 	// REVISION:
-	// let newStr = '';
-	// for (let char of str) {
-	// 	newStr = char + newStr;
-	// }
-	// return newStr;
+
 	// return str.split('').reverse().join('');
 
-	return str.split('').reduce((newStr, char) => char + newStr, '');
+	//
+
+	let reversed = '';
+	for (let char of str) {
+		reversed = char + reversed;
+	}
+	return reversed;
+
+	//
+
+	// return str.split('').reduce((reversed, char) => char + reversed, '');
 }
+
 // reverse('hellothere');
 // and then in the CLI you type 'node inspect index.js', then you type 'c' (continue) to execute the function until it pauses in the 'debugger' statement. then you type 'repl' and then you can type to inspect the variables that you are dealing with.
 

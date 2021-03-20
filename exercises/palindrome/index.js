@@ -21,9 +21,16 @@ function palindrome(str) {
 	// REVISION:
 	// return str.split('').reverse().join('') === str;
 
-	return str.split('').every((char, i) => {
-		return char === str[str.length - 1 - i];
-	});
+	// return str.split('').every((char, i) => {
+	// 	return char === str[str.length - 1 - i];
+	// });
+
+	// return str === str.split('').reverse().join('');
+
+	//
+
+	const strArr = str.split('');
+	return strArr.every((char, i) => char === strArr[strArr.length - 1 - i]);
 }
 
 module.exports = palindrome;
