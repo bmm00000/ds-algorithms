@@ -185,6 +185,43 @@ function anagrams(stringA, stringB) {
 
 	// sort() works with arrays, not strings!
 
+	// return cleanStr(stringA) === cleanStr(stringB);
+
+	// function cleanStr(str) {
+	// 	return str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
+	// }
+
+	//
+	//
+
+	// strAmap = mapper(stringA);
+	// strBmap = mapper(stringB);
+
+	// if (Object.keys(strAmap).length !== Object.keys(strBmap).length) {
+	// 	return false;
+	// }
+
+	// for (let char in strAmap) {
+	// 	// if(!(char in strBmap)){
+	// 	// 	return false
+	// 	// }
+	// 	if (strAmap[char] !== strBmap[char]) {
+	// 		return false;
+	// 	}
+	// }
+
+	// return true;
+
+	// function mapper(str) {
+	// 	const strMap = {};
+	// 	for (let char of str.replace(/[^\w]/g, '').toLowerCase()) {
+	// 		strMap[char] = strMap[char]++ || 1;
+	// 	}
+	// 	return strMap;
+	// }
+
+	//
+
 	return cleanStr(stringA) === cleanStr(stringB);
 
 	function cleanStr(str) {
