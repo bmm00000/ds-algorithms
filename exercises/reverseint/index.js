@@ -46,13 +46,9 @@ function reverseInt(n) {
 	// 	}
 	// }
 	// return parseInt(newNumStr) * Math.sign(n);
-
 	// const nStr = n.toString().split('').reverse().join('');
-
 	// return parseInt(nStr) * Math.sign(n);
-
 	// const reversedStr = n.toString().split('').reverse().join('');
-
 	// return parseInt(reversedStr) * Math.sign(n);
 
 	let reversedStr = '';

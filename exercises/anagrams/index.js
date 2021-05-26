@@ -119,19 +119,15 @@ function anagrams(stringA, stringB) {
 	// }
 	// REVISION:
 	// word.replace(/[^\w]/g, "").toLowerCase()
-
 	// my solution:
 	// const cleanStr = (str) => {
 	// 	return str.replace(/[^\w]/g, '').toLowerCase();
 	// };
-
 	// const strA = cleanStr(stringA);
 	// const strB = cleanStr(stringB);
-
 	// if (strA.length !== strB.length) {
 	// 	return false;
 	// }
-
 	// const getMap = (str) => {
 	// 	strMap = {};
 	// 	for (let char of str) {
@@ -139,39 +135,29 @@ function anagrams(stringA, stringB) {
 	// 	}
 	// 	return strMap;
 	// };
-
 	// strAmap = getMap(strA);
 	// strBmap = getMap(strB);
-
 	// for (let char in strAmap) {
 	// 	if (!(char in strBmap)) {
 	// 		return false;
 	// 	}
-
 	// 	if (strAmap[char] !== strBmap[char]) {
 	// 		return false;
 	// 	}
 	// }
-
 	// return true;
-
 	//
-
 	// const strAmap = mapper(stringA);
 	// const strBmap = mapper(stringB);
-
 	// if (Object.keys(strAmap).length !== Object.keys(strBmap).length) {
 	// 	return false;
 	// }
-
 	// for (let char in strAmap) {
 	// 	if (strAmap[char] !== strBmap[char]) {
 	// 		return false;
 	// 	}
 	// }
-
 	// return true;
-
 	// // watch out! if you declare an arrow function, it does not hoist it!
 	// function mapper(str) {
 	// 	const strMap = {};
@@ -180,27 +166,19 @@ function anagrams(stringA, stringB) {
 	// 	}
 	// 	return strMap;
 	// }
-
 	//
-
 	// sort() works with arrays, not strings!
-
 	// return cleanStr(stringA) === cleanStr(stringB);
-
 	// function cleanStr(str) {
 	// 	return str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
 	// }
-
 	//
 	//
-
 	// strAmap = mapper(stringA);
 	// strBmap = mapper(stringB);
-
 	// if (Object.keys(strAmap).length !== Object.keys(strBmap).length) {
 	// 	return false;
 	// }
-
 	// for (let char in strAmap) {
 	// 	// if(!(char in strBmap)){
 	// 	// 	return false
@@ -209,9 +187,7 @@ function anagrams(stringA, stringB) {
 	// 		return false;
 	// 	}
 	// }
-
 	// return true;
-
 	// function mapper(str) {
 	// 	const strMap = {};
 	// 	for (let char of str.replace(/[^\w]/g, '').toLowerCase()) {
@@ -219,14 +195,36 @@ function anagrams(stringA, stringB) {
 	// 	}
 	// 	return strMap;
 	// }
-
 	//
-
-	return cleanStr(stringA) === cleanStr(stringB);
-
-	function cleanStr(str) {
-		return str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
-	}
+	// return cleanStr(stringA) === cleanStr(stringB);
+	// function cleanStr(str) {
+	// 	return str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
+	// }
+	//
+	//
+	//
+	// const mapA = mapper(stringA);
+	// const mapB = mapper(stringB);
+	// if (Object.keys(mapA).length !== Object.keys(mapB).length) {
+	// 	return false;
+	// }
+	// for (let char in mapA) {
+	// 	if (mapA[char] !== mapB[char]) {
+	// 		return false;
+	// 	}
+	// }
+	// return true;
+	// function mapper(str) {
+	// 	strMap = {};
+	// 	for (let char of str.replace(/[^\w]/g, '').toLowerCase()) {
+	// 		strMap[char] = strMap[char]++ || 1;
+	// 	}
+	// 	return strMap;
+	// }
+	// return sorter(stringA) === sorter(stringB);
+	// function sorter(str) {
+	// 	return str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
+	// }
 }
 
 module.exports = anagrams;

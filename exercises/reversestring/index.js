@@ -51,20 +51,43 @@ function reverse(str) {
 	// return str.split('').reduce((reversed, curr) => curr + reversed, '');
 	//
 	// REVISION:
-
 	// return str.split('').reverse().join('');
-
 	//
-
-	let reversed = '';
-	for (let char of str) {
-		reversed = char + reversed;
-	}
-	return reversed;
-
+	// let reversed = '';
+	// for (let char of str) {
+	// 	reversed = char + reversed;
+	// }
+	// return reversed;
 	//
-
 	// return str.split('').reduce((reversed, char) => char + reversed, '');
+	//
+	//
+	//
+	//
+	//
+	// return str.split('').reverse().join('');
+	//
+	// let reversed = '';
+	// for (let char of str) {
+	// 	reversed = char + reversed;
+	// }
+	// return reversed;
+	//
+	// let reversed = '';
+	// for (let i = 0; i < str.length; i++) {
+	// 	reversed = str[i] + reversed;
+	// }
+	// return reversed;
+	//
+	// let reversed = '';
+	// let i = 0;
+	// while (i < str.length) {
+	// 	reversed = str[i] + reversed;
+	// 	i++;
+	// }
+	// return reversed;
+	//
+	return str.split('').reduce((reversed, char) => char + reversed, '');
 }
 
 // reverse('hellothere');

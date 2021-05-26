@@ -85,11 +85,8 @@ function chunk(array, size) {
 	// 	}
 	// }
 	// return resArr;
-
 	// REVISION:
-
 	// newArr = [];
-
 	// for (let num of array) {
 	// 	const last = newArr[newArr.length - 1];
 	// 	if (!last || last.length === size) {
@@ -98,31 +95,22 @@ function chunk(array, size) {
 	// 		last.push(num);
 	// 	}
 	// }
-
 	// return newArr;
-
 	//
-
 	// const newArr = [];
-
 	// for (let i = 0; i < array.length; i += size) {
 	// 	const chunk = array.slice(i, i + size);
 	// 	newArr.push(chunk);
 	// }
-
 	// return newArr;
-
 	//
-
-	const newArr = [];
-
-	let index = 0;
-	while (index < array.length) {
-		newArr.push(array.slice(index, index + size));
-		index += size;
-	}
-
-	return newArr;
+	// const newArr = [];
+	// let index = 0;
+	// while (index < array.length) {
+	// 	newArr.push(array.slice(index, index + size));
+	// 	index += size;
+	// }
+	// return newArr;
 }
 
 module.exports = chunk;
