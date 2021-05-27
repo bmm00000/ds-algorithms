@@ -8,21 +8,18 @@
 //   palindrome("abcdefg") === false
 
 function palindrome(str) {
-	// let reversed = '';
-	// for (let char of str) {
-	// 	reversed = char + reversed;
-	// }
-	// return str === reversed;
-	// second solution:
-	// return str.split('').every((char, i) => {
-	// 	return char === str[str.length - i - 1];
-	// });
-	// return str.split('').reverse().join('') === str;
-	// REVISION:
 	// return str.split('').reverse().join('') === str;
 	//
-	// const strArr = str.split('');
-	// return strArr.every((char, i) => char === strArr[strArr.length - 1 - i]);
+	// in the following two solutions, there is an issue: we will duplicate comparisons when we pass the middle point:
+	//
+	// for (let i = 0; i < str.length; i++) {
+	// 	if (str[i] !== str[str.length - 1 - i]) {
+	// 		return false;
+	// 	}
+	// }
+	// return true;
+	//
+	return str.split('').every((char, i) => char === str[str.length - 1 - i]);
 }
 
 module.exports = palindrome;
