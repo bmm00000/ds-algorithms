@@ -22,16 +22,19 @@ function reverse(str) {
 	// }
 	// return reversed;
 	//
-	let reversed = '';
-	let i = 0;
-	while (i < str.length) {
-		reversed = str[i] + reversed;
-		// debugger;
-		i++;
-	}
-	return reversed;
+	// let reversed = '';
+	// let i = 0;
+	// while (i < str.length) {
+	// 	reversed = str[i] + reversed;
+	// 	// debugger;
+	// 	i++;
+	// }
+	// return reversed;
 	//
 	// return str.split('').reduce((reversed, char) => char + reversed, '');
+	//
+	//
+	//
 }
 
 // reverse('hellothere');
