@@ -9,44 +9,6 @@
 //   reverseInt(-90) === -9
 
 function reverseInt(n) {
-	// first solution:
-	// const reversedStr = n.toString().split('').reverse().join('');
-	// if (n < 0) {
-	// 	return parseInt(reversedStr) * -1;
-	// }
-	// return parseInt(reversedStr);
-	// second solution:
-	// const reversedStr = n.toString().split('').reverse().join('');
-	// return parseInt(reversedStr) * Math.sign(n);
-	// 	const revnStr = n.toString().split('').reverse().join('');
-	// 	if (n < 0) {
-	// 		return parseInt(revnStr) * -1;
-	// 	} else {
-	// 		return parseInt(revnStr);
-	// 	}
-	// REVISION:
-	// let newNumStr = '';
-	// for (let char of n.toString()) {
-	// 	if (isNaN(parseInt(char))) {
-	// 		continue;
-	// 	} else {
-	// 		newNumStr = char + newNumStr;
-	// 	}
-	// }
-	// return parseInt(newNumStr) * Math.sign(n);
-	// const nStr = n.toString().split('').reverse().join('');
-	// return parseInt(nStr) * Math.sign(n);
-	// const reversedStr = n.toString().split('').reverse().join('');
-	// return parseInt(reversedStr) * Math.sign(n);
-
-	// let reversedStr = '';
-	// for (let char of n.toString()) {
-	// 	reversedStr = char + reversedStr;
-	// }
-	// return parseInt(reversedStr) * Math.sign(n);
-	//
-	//
-	//
 	// const str = n.toString();
 	// let newStr = '';
 	// for (let char of str) {
@@ -55,8 +17,15 @@ function reverseInt(n) {
 	// 	}
 	// }
 	// return parseInt(newStr) * Math.sign(n);
+	//
+	const reversed = n.toString().split('').reverse().join('');
 
-	return parseInt(n.toString().split('').reverse().join('')) * Math.sign(n);
+	// if (n < 0) {
+	// 	return parseInt(reversed) * -1;
+	// }
+	// return parseInt(reversed);
+
+	return parseInt(reversed) * Math.sign(n);
 }
 
 module.exports = reverseInt;

@@ -6,40 +6,19 @@
 // maxChar("apple 1231111") === "1"
 
 function maxChar(str) {
-	// REVISION:
-	// const strObj = {};
-	// let maxFreq = 0;
+	// const charMap = {};
+	// let max = 0;
 	// let maxChar = '';
-
 	// for (let char of str) {
-	// 	// strObj[char] ? strObj[char]++ : (strObj[char] = 1);
-	// 	strObj[char] = strObj[char]++ || 1;
+	// 	charMap[char] = charMap[char]++ || 1;
 	// }
-
-	// for (let key in strObj) {
-	// 	if (strObj[key] > maxFreq) {
-	// 		maxFreq = strObj[key];
-	// 		maxChar = key;
+	// for (let char in charMap) {
+	// 	if (charMap[char] > max) {
+	// 		max = charMap[char];
+	// 		maxChar = char;
 	// 	}
 	// }
 	// return maxChar;
-
-	const strMap = {};
-
-	for (let char of str) {
-		strMap[char] = strMap[char]++ || 1;
-	}
-
-	let maxChar = '';
-	let maxFreq = 0;
-
-	for (let char in strMap) {
-		if (strMap[char] > maxFreq) {
-			maxFreq = strMap[char];
-			maxChar = char;
-		}
-	}
-	return maxChar;
 }
 
 module.exports = maxChar;
