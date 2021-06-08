@@ -18,14 +18,16 @@ function reverseInt(n) {
 	// }
 	// return parseInt(newStr) * Math.sign(n);
 	//
-	const reversed = n.toString().split('').reverse().join('');
-
+	// const reversed = n.toString().split('').reverse().join('');
+	// return parseInt(reversed) * Math.sign(n);
+	// you can also do the following, instead of using Math.sign():
 	// if (n < 0) {
 	// 	return parseInt(reversed) * -1;
 	// }
 	// return parseInt(reversed);
-
-	return parseInt(reversed) * Math.sign(n);
+	//
+	//
+	//
 }
 
 module.exports = reverseInt;
