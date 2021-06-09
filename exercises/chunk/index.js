@@ -22,17 +22,23 @@ function chunk(array, size) {
 	//
 	//
 	//
-	const chunked = [];
-
-	for (let i = 0; i < array.length; i += size) {
-		const chunk = array.slice(i, i + size);
-		chunked.push(chunk);
-	}
-
-	return chunked;
+	// const chunked = [];
+	// for (let i = 0; i < array.length; i += size) {
+	// 	const chunk = array.slice(i, i + size);
+	// 	chunked.push(chunk);
+	// }
+	// return chunked;
 	//
 	//
 	//
+	// const chunked = [];
+	// let i = 0;
+	// while (i < array.length) {
+	// 	const chunk = array.slice(i, i + size);
+	// 	chunked.push(chunk);
+	// 	i += size;
+	// }
+	// return chunked;
 }
 
 module.exports = chunk;

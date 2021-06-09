@@ -225,6 +225,38 @@ function anagrams(stringA, stringB) {
 	// function sorter(str) {
 	// 	return str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
 	// }
+	//
+	//
+	//
+
+	const mapA = mapper(cleaner(stringA));
+	const mapB = mapper(cleaner(stringB));
+
+	if (Object.keys(mapA).length !== Object.keys(mapB).length) {
+		return false;
+	}
+
+	for (let key in mapA) {
+		if (mapA[key] !== mapB[key]) {
+			return false;
+		}
+	}
+
+	return true;
+
+	function cleaner(str) {
+		return str.replace(/[^\w]/g, '').toLowerCase();
+	}
+
+	function mapper(str) {
+		const map = {};
+
+		for (let char of str) {
+			map[char] = map[char]++ || 1;
+		}
+
+		return map;
+	}
 }
 
 module.exports = anagrams;
