@@ -29,18 +29,41 @@ function steps(n) {
 	// 	}
 	// 	console.log(string);
 	// }
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	// for (let i = 0; i < n; i++) {
+	// 	let consoleThis = '';
+	// 	for (let j = 0; j <= i; j++) {
+	// 		consoleThis += '#';
+	// 	}
+	// 	const spaces = n - i - 1;
+	// 	for (let z = 0; z < spaces; z++) {
+	// 		consoleThis += ' ';
+	// 	}
+	// 	console.log(consoleThis);
+	// }
+	//
+	//
+	for (let row = 0; row < n; row++) {
+		let string = '';
 
-	for (let i = 0; i < n; i++) {
-		let str = '';
-		for (let j = 0; j < n; j++) {
-			if (i >= j) {
-				str += '#';
+		for (let column = 0; column < n; column++) {
+			if (column > row) {
+				string += ' ';
 			} else {
-				str += ' ';
+				string += '#';
 			}
 		}
-		console.log(str);
+
+		console.log(string);
 	}
 }
 
 module.exports = steps;
+
+// in an interview, try to write the solution first in pseudo-code in the whiteboard before you code it, since your interviewer will be able to help you find errors.

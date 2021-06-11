@@ -8,72 +8,35 @@
 //   capitalize('look, it is working!') --> 'Look, It Is Working!'
 
 function capitalize(str) {
-	// const resArr = [];
-	// for (let word of str.split(' ')) {
-	// 	const capWord = word[0].toUpperCase().concat('', word.slice(1));
-	// 	// instead of the 'concat' method, you can just use '+'
-	// 	resArr.push(capWord);
-	// }
-	// return resArr.join(' ');
-	//another solution:
-	// let result = str[0].toUpperCase();
-	// for (let i = 1; i < str.length; i++) {
-	// 	if (str[i - 1] === ' ') {
-	// 		result += str[i].toUpperCase();
-	// 	} else {
-	// 		result += str[i];
-	// 	}
-	// }
-	// return result;
-	// const splitSen = str.split(' ');
-	// const newSen = [];
-	// for (let word of splitSen) {
-	// 	const capWord = word[0].toUpperCase() + word.slice(1);
-	// 	newSen.push(capWord);
-	// }
-	// return newSen.join(' ');
-	// let newStr = '';
-	// for (let i = 0; i < str.length; i++) {
-	// 	if (str[i - 1] === ' ' || !str[i - 1]) {
-	// 		newStr += str[i].toUpperCase();
-	// 	} else {
-	// 		newStr += str[i];
-	// 	}
-	// }
-	// return newStr;
-	//
-	//
-	// REVISION:
-	//
-	// slice() works with both arrays and strings
-	// const capWords = [];
-	// for (let word of str.split(' ')) {
-	// 	const capWord = word[0].toUpperCase() + word.slice(1);
-	// 	capWords.push(capWord);
-	// }
-	// return capWords.join(' ');
-	//
+	// // the problem with the following solution is that if get a non-letter character as first character (for example, initial question mark in Spanish), we wouldn't want to capitalize it:
 	// let capStr = '';
 	// for (let i = 0; i < str.length; i++) {
-	// 	if (!str[i - 1] || str[i - 1] === ' ') {
+	// 	const last = str[i - 1];
+	// 	if (!last || last === ' ') {
 	// 		capStr += str[i].toUpperCase();
 	// 	} else {
 	// 		capStr += str[i];
 	// 	}
 	// }
 	// return capStr;
-	// stephen grider gives the following solution, but it's not such a good practice to capitalize the first character from the beginning, etc. I think my solution is better.
-	// 	let capStr = str[0].toUpperCase();
-	// 	for (let i = 1; i < str.length; i++) {
-	// 		if (str[i - 1] === ' ') {
-	// 			capStr += str[i].toUpperCase();
-	// 		} else {
-	// 			capStr += str[i];
-	// 		}
-	// 	}
-	// 	return capStr;
+	// // you can also do the following: let capStr = str[0].toUpperCase(), and  then start iterating in the loop from i = 1
 	//
 	//
+	//
+	// good news, slice method works with both arrays and strings!
+	// const capArr = [];
+	// str.split(' ').forEach((word) => {
+	// 	const capWord = word[0].toUpperCase() + word.slice(1);
+	// 	capArr.push(capWord);
+	// });
+	// return capArr.join(' ');
+	//
+	//
+	//
+	// const capArr = str.split(' ').map((word) => {
+	// 	return word[0].toUpperCase() + word.slice(1);
+	// });
+	// return capArr.join(' ');
 }
 
 module.exports = capitalize;
