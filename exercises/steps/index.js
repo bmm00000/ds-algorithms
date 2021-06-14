@@ -18,54 +18,22 @@
 //       '####'
 
 function steps(n) {
-	// for (let row = 0; row < n; row++) {
-	// 	let string = '';
-	// 	for (let column = 0; column < n; column++) {
-	// 		if (row >= column) {
-	// 			string += '#';
-	// 		} else {
-	// 			string += ' ';
-	// 		}
-	// 	}
-	// 	console.log(string);
-	// }
-	//
-	//
-	//
-	//
-	//
-	//
-	//
 	// for (let i = 0; i < n; i++) {
-	// 	let consoleThis = '';
+	// 	let str = '';
 	// 	for (let j = 0; j <= i; j++) {
-	// 		consoleThis += '#';
+	// 		str += '#';
 	// 	}
 	// 	const spaces = n - i - 1;
 	// 	for (let z = 0; z < spaces; z++) {
-	// 		consoleThis += ' ';
+	// 		str += ' ';
 	// 	}
-	// 	console.log(consoleThis);
-	// }
-	//
-	//
-	// for (let row = 0; row < n; row++) {
-	// 	let string = '';
-	// 	for (let column = 0; column < n; column++) {
-	// 		if (column > row) {
-	// 			string += ' ';
-	// 		} else {
-	// 			string += '#';
-	// 		}
-	// 	}
-	// 	console.log(string);
+	// 	console.log(str);
 	// }
 	//
 	//
 	//
 	// for (let row = 0; row < n; row++) {
 	// 	let str = '';
-
 	// 	for (let column = 0; column < n; column++) {
 	// 		if (column > row) {
 	// 			str += ' ';
@@ -73,25 +41,22 @@ function steps(n) {
 	// 			str += '#';
 	// 		}
 	// 	}
-
 	// 	console.log(str);
 	// }
 	//
 	//
 	//
-	for (let row = 0; row < n; row++) {
-		let str = '';
-
-		for (let column = 0; column < n; column++) {
-			if (column <= row) {
-				str += '#';
-			} else {
-				str += ' ';
-			}
-		}
-
-		console.log(str);
-	}
+	// for (let row = 0; row < n; row++) {
+	// 	let str = '';
+	// 	for (let column = 0; column < n; column++) {
+	// 		if (column <= row) {
+	// 			str += '#';
+	// 		} else {
+	// 			str += ' ';
+	// 		}
+	// 	}
+	// 	console.log(str);
+	// }
 }
 
 module.exports = steps;
