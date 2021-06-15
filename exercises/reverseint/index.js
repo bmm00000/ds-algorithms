@@ -17,6 +17,7 @@ function reverseInt(n) {
 	// 	}
 	// }
 	// return parseInt(newStr) * Math.sign(n);
+	// we don't need to do what I did above with isNaN, because parseInt already cleans any minus sign.
 	//
 	// const reversed = n.toString().split('').reverse().join('');
 	// return parseInt(reversed) * Math.sign(n);

@@ -23,7 +23,7 @@ function capitalize(str) {
 	//
 	//
 	//
-	// good news, slice method works with both arrays and strings!
+	// good news, slice method works with both arrays and strings! (but WATCH OUT! splice only works with arrays)
 	// const capArr = [];
 	// str.split(' ').forEach((word) => {
 	// 	const capWord = word[0].toUpperCase() + word.slice(1);
@@ -35,8 +35,11 @@ function capitalize(str) {
 	//
 	// const capArr = str.split(' ').map((word) => {
 	// 	return word[0].toUpperCase() + word.slice(1);
+	// we can also use 'concat()' above.
 	// });
 	// return capArr.join(' ');
+	//
+	// therefore, generally speaking, we have two types of solution to this problem: iterative and with methods.
 }
 
 module.exports = capitalize;
