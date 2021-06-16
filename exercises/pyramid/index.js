@@ -14,6 +14,31 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {}
+function pyramid(n) {
+	const totalColumns = n * 2 - 1;
+	const midIndex = Math.floor(totalColumns / 2);
+
+	for (let row = 0; row < n; row++) {
+		let level = '';
+		const totalPounds = row * 2 + 1;
+
+		for (let column = 0; column < totalColumns; column++) {
+			if (
+				column === midIndex ||
+				(midIndex < column &&
+					column <= midIndex + Math.floor(totalPounds / 2)) ||
+				(midIndex > column && column >= midIndex - Math.floor(totalPounds / 2))
+			) {
+				level += '#';
+			} else {
+				level += ' ';
+			}
+		}
+
+		console.log(level);
+	}
+}
+
+// as in the 'steps' exercise, we also have two kinds of solutions: iterative and recursive.
 
 module.exports = pyramid;
