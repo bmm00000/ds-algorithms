@@ -32,8 +32,39 @@ function vowels(str) {
 	// }
 	// return num;
 
-	const matches = str.match(/[aeiou]/gi);
+	// const matches = str.match(/[aeiou]/gi);
+	// return matches ? matches.length : 0;
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	// const lowStr = str.toLowerCase();
+	// let num = 0;
+	// for (let char of lowStr) {
+	// 	if (
+	// 		char === 'a' ||
+	// 		char === 'e' ||
+	// 		char === 'i' ||
+	// 		char === 'o' ||
+	// 		char === 'u'
+	// 	) {
+	// 		num += 1;
+	// 	}
+	// }
+	// return num;
+	//
+	//
+	//
+	const lowStr = str.toLowerCase();
+	const regex = /[aeiou]/gi;
+	const matches = lowStr.match(regex);
 	return matches ? matches.length : 0;
+	// WATCH OUT! if you just return lowStr.match(regex).length, it will return null if there are no matches, and you want 0, not null!
+	//
+	// we are using an iterative solution and a regex solution.
 }
 
 module.exports = vowels;

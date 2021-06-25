@@ -39,8 +39,12 @@ function chunk(array, size) {
 	// 	i += size;
 	// }
 	// return chunked;
+	//
+	// note that 'slice' works for both arrays and strings, but 'splice' only for arrays.
+	//
+	//
+	//
 }
-
 module.exports = chunk;
 
 // look the screenshot to see the algorithm

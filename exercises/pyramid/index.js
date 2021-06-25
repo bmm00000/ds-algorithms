@@ -64,26 +64,27 @@
 // }
 //
 // turns out that 'sidePounds' coincides with 'row', so you can use 'row' instead of 'sidePounds' if you want (so you don't need to define 'pounds' and 'sidePounds'):
-function pyramid(n) {
-	const midPoint = Math.floor((n * 2 - 1) / 2);
+// function pyramid(n) {
+// 	const midPoint = Math.floor((n * 2 - 1) / 2);
 
-	for (let row = 0; row < n; row++) {
-		let level = '';
+// 	for (let row = 0; row < n; row++) {
+// 		let level = '';
 
-		for (let column = 0; column < n * 2 - 1; column++) {
-			if (midPoint - row <= column && midPoint + row >= column) {
-				level += '#';
-			} else {
-				level += ' ';
-			}
-		}
+// 		for (let column = 0; column < n * 2 - 1; column++) {
+// 			if (midPoint - row <= column && midPoint + row >= column) {
+// 				level += '#';
+// 			} else {
+// 				level += ' ';
+// 			}
+// 		}
 
-		console.log(level);
-	}
-}
+// 		console.log(level);
+// 	}
+// }
 //
 //
 //
+// WHAT IS WRONG WITH MY SOLUTION??
 // function pyramid(n, row = 0, sidePounds = 0, level = '') {
 // 	const columns = n * 2 + 1;
 // 	const midColumn = Math.floor(columns / 2);
@@ -108,6 +109,31 @@ function pyramid(n) {
 // 	}
 // 	pyramid(n, row, sidePounds, level);
 // }
+//
+//
+//
+function pyramid(n, row = 0, level = '') {
+	if (row === n) {
+		return;
+	}
+
+	if (level.length === n * 2 - 1) {
+		console.log(level);
+		return pyramid(n, row + 1);
+	}
+
+	const midPoint = Math.floor((n * 2 - 1) / 2);
+	let add;
+	if (level.length >= midPoint - row && level.length <= midPoint + row) {
+		add = '#';
+	} else {
+		add = ' ';
+	}
+	pyramid(n, row, level + add);
+}
+//
+//
+//
 
 // as in the 'steps' exercise, we also have two kinds of solutions: iterative and recursive.
 
