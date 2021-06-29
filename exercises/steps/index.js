@@ -85,6 +85,24 @@
 //
 //
 //
+function steps(n, row = 0, level = '') {
+	if (row === n) {
+		return;
+	}
+
+	if (level.length === n) {
+		console.log(level);
+		return steps(n, row + 1);
+	}
+
+	let add = '';
+	if (level.length <= row) {
+		add = '#';
+	} else {
+		add = ' ';
+	}
+	steps(n, row, level + add);
+}
 
 module.exports = steps;
 

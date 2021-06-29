@@ -84,7 +84,7 @@
 //
 //
 //
-// WHAT IS WRONG WITH MY SOLUTION??
+// WHAT IS WRONG WITH MY RECURSIVE SOLUTION??
 // function pyramid(n, row = 0, sidePounds = 0, level = '') {
 // 	const columns = n * 2 + 1;
 // 	const midColumn = Math.floor(columns / 2);
@@ -112,28 +112,70 @@
 //
 //
 //
+// function pyramid(n, row = 0, level = '') {
+// 	if (row === n) {
+// 		return;
+// 	}
+
+// 	if (level.length === n * 2 - 1) {
+// 		console.log(level);
+// 		return pyramid(n, row + 1);
+// 	}
+
+// 	const midPoint = Math.floor((n * 2 - 1) / 2);
+// 	let add;
+// 	if (level.length >= midPoint - row && level.length <= midPoint + row) {
+// 		add = '#';
+// 	} else {
+// 		add = ' ';
+// 	}
+// 	pyramid(n, row, level + add);
+// }
+//
+//
+//
+// BEST WAY TO PUT ITERATIVE SOLUTION:
+// function pyramid(n) {
+// 	const columns = n * 2 - 1;
+// 	const midIndex = Math.floor(columns / 2);
+
+// 	for (let row = 0; row < n; row++) {
+// 		let level = '';
+
+// 		for (let col = 0; col < columns; col++) {
+// 			if (col >= midIndex - row && col <= midIndex + row) {
+// 				level += '#';
+// 			} else {
+// 				level += ' ';
+// 			}
+// 		}
+
+// 		console.log(level);
+// 	}
+// }
+//
+//
+//
 function pyramid(n, row = 0, level = '') {
+	const columns = n * 2 - 1;
+	const midIndex = Math.floor(columns / 2);
+
 	if (row === n) {
 		return;
 	}
 
-	if (level.length === n * 2 - 1) {
+	if (level.length === columns) {
 		console.log(level);
 		return pyramid(n, row + 1);
 	}
 
-	const midPoint = Math.floor((n * 2 - 1) / 2);
-	let add;
-	if (level.length >= midPoint - row && level.length <= midPoint + row) {
-		add = '#';
+	if (level.length >= midIndex - row && level.length <= midIndex + row) {
+		level += '#';
 	} else {
-		add = ' ';
+		level += ' ';
 	}
-	pyramid(n, row, level + add);
+	pyramid(n, row, level);
 }
-//
-//
-//
 
 // as in the 'steps' exercise, we also have two kinds of solutions: iterative and recursive.
 
