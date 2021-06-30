@@ -40,6 +40,9 @@ function capitalize(str) {
 	// return capArr.join(' ');
 	//
 	// therefore, generally speaking, we have two types of solution to this problem: iterative and with methods.
+	//
+	//
+	//
 }
 
 module.exports = capitalize;

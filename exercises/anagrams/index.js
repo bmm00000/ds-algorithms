@@ -45,6 +45,10 @@ function anagrams(stringA, stringB) {
 	// function cleanStr(str) {
 	// 	return str.replace(/[^\w]/g, '').toLowerCase();
 	// }
+	// therefore, we have an iterative approach and another solutions based on methods.
+	//
+	//
+	//
 }
 
 module.exports = anagrams;
