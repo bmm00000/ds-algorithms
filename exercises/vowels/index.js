@@ -24,7 +24,7 @@ function vowels(str) {
 	//
 	//
 	//
-	let count = 0;
+	// let count = 0;
 	// const checker = 'aeiou';
 	// an array would be clearer here for other developers, and it would also allow us to include other patterns apart from single vowels (for example, const checker = ['a', 'e', 'i', 'o', 'u', 'abc']):
 	// const checker = ['a', 'e', 'i', 'o', 'u'];
@@ -39,9 +39,9 @@ function vowels(str) {
 	//
 	//
 	//
-	const matches = str.toLowerCase().match(/[aeiou]/gi);
-	return matches ? matches.length : 0;
-	// WATCH OUT! if you just return lowStr.match(regex).length, it will return null if there are no matches, and you want 0, not null!
+	// const matches = str.match(/[aeiou]/gi);
+	// return matches ? matches.length : 0;
+	// WATCH OUT! if you just return str.match(regex).length, it will return null if there are no matches, and you want 0, not null!
 	// in regex:
 	// []: if the string contains anything inside the [], let us know.
 	// g: we don't stop at the first match that we find in our string (so we will find all the vowels)
