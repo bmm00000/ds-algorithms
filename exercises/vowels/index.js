@@ -35,7 +35,7 @@ function vowels(str) {
 	// }
 	// return count;
 	// includes() applies both to arrays and strings
-	// includes() returns true or false, whereas match() returns an array with the matches (or null, if there are no matches), but both methods are kind of equivalent.
+	// includes() returns true or false, whereas match() (only for strings) returns an array with the matches (or null, if there are no matches), but both methods are kind of equivalent.
 	//
 	//
 	//
