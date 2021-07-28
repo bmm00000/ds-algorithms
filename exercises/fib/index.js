@@ -9,21 +9,20 @@
 //   fib(4) === 3
 
 function fib(n) {
-	const result = [0, 1];
-
-	for (let i = 2; i <= n; i++) {
-		const a = result[i - 1];
-		// or:
-		// const a = result[result.length - 1];
-		const b = result[i - 2];
-		// or:
-		// const b = result[result.length - 2];
-		result.push(a + b);
-	}
-
-	return result[n];
-	// or:
-	// return result[result.length - 1]
+	// const result = [0, 1];
+	// for (let i = 2; i <= n; i++) {
+	// 	const a = result[i - 1];
+	// 	// or:
+	// 	// const a = result[result.length - 1];
+	// 	const b = result[i - 2];
+	// 	// or:
+	// 	// const b = result[result.length - 2];
+	// 	result.push(a + b);
+	// }
+	// return result[n];
+	// // or:
+	// // return result[result.length - 1]
+	// this solution is O(n)
 }
 
 module.exports = fib;
