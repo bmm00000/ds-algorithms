@@ -9,32 +9,21 @@
 //   fib(4) === 3
 
 function fib(n) {
-	// const fibArr = [];
-	// let fibNum = 0;
-	// for (let i = 0; i <= n; i++) {
-	// 	if (fibNum === 0) {
-	// 		fibArr.push(fibNum);
-	// 		fibNum = 1;
-	// 		fibArr.push(fibNum);
-	// 	} else {
-	// 		const last = fibArr[fibArr.length - 1];
-	// 		const secLast = fibArr[fibArr.length - 2];
-	// 		fibNum = secLast + last;
-	// 		fibArr.push(fibNum);
-	// 	}
-	// }
-	// return fibArr[n];
-	//
-	//
-	//
-	const fibArr = [0, 1];
+	const result = [0, 1];
+
 	for (let i = 2; i <= n; i++) {
-		const last = fibArr[fibArr.length - 1];
-		const secLast = fibArr[fibArr.length - 2];
-		const fibNum = secLast + last;
-		fibArr.push(fibNum);
+		const a = result[i - 1];
+		// or:
+		// const a = result[result.length - 1];
+		const b = result[i - 2];
+		// or:
+		// const b = result[result.length - 2];
+		result.push(a + b);
 	}
-	return fibArr[n];
+
+	return result[n];
+	// or:
+	// return result[result.length - 1]
 }
 
 module.exports = fib;
