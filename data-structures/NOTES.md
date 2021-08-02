@@ -1,0 +1,12 @@
+data structures are all about runtime complexity. in the context of an interview, a lot of these data structures questions are themed around runtime complexity: if you are asked to write a function that does whatever, you have to think about what data structure you can use to solve this problem that has some optimal runtime complexity for what we are trying to solve.
+
+'inferior' referring to data structures is not the best term in the world: look at the screenshot: a JS array does everything that a classic queue data structure does. HOWEVER, you will still have interviewers that will ask you to put a queue together form scratch. What we mean is that there are portions of JS that take care of these funcy data structures authomatically, but you will still have interviews that will ask you to build these tiny little basic things from scratch. watch out, it might be confusing that we are going to use a JS array to represent a queue.
+
+THE QUEUE DATA STRUCTURE
+a queue can be seen as a kind of container, where records enter on one end, and exit on the other, like waiting in line to buy tickets.
+there is no way to skip the queue. the order that you enter in determines the way you come out.
+the process of adding a record into a queue is called as 'enqueing' or 'adding'a record, and taking something out is known as 'dequeuing' or removing a record
+
+about maintaining order in a queue: a queue follows the FIFO principle: the first record that comes into the queue is the first one that is going to come out.
+
+In JS we don't have anything like a rudimentary queue, we have arrays, which are super functional (a ton of different methods attached to them), whereas a queue has a tiny little API attached to it (just add records and pull records out on the other side). In JS, when we want to implement a queue what we do is take an array and restrict the methods that can be used to interact with that array: a very common way of implementing a queue is to use unshift() and pop(): make a queue class, inside of that class we will initialize an empty array. This array has all the methods and capabilities of the world, but to make sure it is clear that we are producing a queue, we will only expose the unshift() and pop() methods outside of the class. in other words, when we make a queue in JS, we make an array, and we do our best to hide access to all other methods (other than unshift and pop) that belong to the array.
