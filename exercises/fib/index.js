@@ -40,7 +40,7 @@ function memoize(fn) {
 	const cache = {};
 	// since we are building this 'memoize' function as a generic one to be applied to any suitable problem, we don't know how many parameters the return function will have. Therefore, we use ES6: ...args (this is kind of 'defensive coding' (I don't know how many arguments, therefore we protect ourselves))
 	return function (...args) {
-		// have we called this function with this particular set of arguments before and therfore stored the results in the cache object? if we have, then return it and don't do any other work (especially don't call the original function):
+		// have we called this function with this particular set of arguments before and therefore stored the results in the cache object? if we have, then return it and don't do any other work (especially don't call the original function):
 		if (cache[args]) {
 			return cache[args];
 		}

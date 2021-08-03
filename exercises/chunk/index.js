@@ -44,6 +44,8 @@ function chunk(array, size) {
 	//
 	//
 	//
-	
+}
 
 // look the screenshot to see the algorithm
+
+module.exports = chunk;
