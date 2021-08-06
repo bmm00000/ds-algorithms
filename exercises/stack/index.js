@@ -29,3 +29,6 @@ class Stack {
 }
 
 module.exports = Stack;
+
+// STACK DATA STRUCTURE
+// it's similar to a queue with some differences: we are going to deal with a list of records. the difference between a stack and queue is the order in which items are removed: with stacks we have FILO

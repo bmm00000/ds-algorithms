@@ -21,3 +21,5 @@ class Queue {
 }
 
 module.exports = Queue;
+
+// if were were working with a lower level language, to make a queue would be more complicated, but with JS is very straightforward, since JS, as a higher level language, is doing the heavy lifting.

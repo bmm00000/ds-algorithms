@@ -8,7 +8,7 @@
 // queues of different lengths without inserting
 // 'undefined' into the new one.
 // *Do not* access the array inside of any queue, only
-// use the 'add', 'remove', and 'peek' functions.
+// use the 'add', 'remove', and 'peek' functions. (WE DO THIS IN ORDER NOT TO ABUSE THE FACT THAT THE CLASS IS WRAPPING AN ARRAY, WE ARE JUST WORKING WITH THE QUEUE, NOT THE ARRAY)
 // --- Example
 //    const queueOne = new Queue();
 //    queueOne.add(1);
@@ -25,28 +25,19 @@
 const Queue = require('./queue');
 
 function weave(sourceOne, sourceTwo) {
-	const q1 = new Queue();
-	for (let elem of sourceOne) {
-		q1.add(elem);
-	}
-	const q2 = new Queue();
-	for (let elem of sourceTwo) {
-		q2.add(elem);
+	const finalQ = new Queue();
+
+	while (sourceOne.peek() || sourceTwo.peek()) {
+		if (sourceOne.peek()) {
+			finalQ.add(sourceOne.remove());
+		}
+
+		if (sourceTwo.peek()) {
+			finalQ.add(sourceTwo.remove());
+		}
 	}
 
-	const result = [];
-	if (q1.length >= q2.length) {
-		for (let i = 0; i < q1.length; i++) {
-			result.push(q1[i]);
-			result.push(q2[i]);
-		}
-	} else {
-		for (let i = 0; i < q2.length; i++) {
-			result.push(q1[i]);
-			result.push(q2[i]);
-		}
-	}
-	return result;
+	return finalQ;
 }
 
 module.exports = weave;
