@@ -39,6 +39,12 @@ function capitalize(str) {
 	// });
 	// return capArr.join(' ');
 	//
+	// or:
+	// return str
+	// 	.split(' ')
+	// 	.map((word) => word[0].toUpperCase() + word.slice(1))
+	// 	.join(' ');
+	//
 	// therefore, generally speaking, we have two types of solution to this problem: iterative and with methods.
 	//
 	//
