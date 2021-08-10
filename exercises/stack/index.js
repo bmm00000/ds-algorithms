@@ -10,6 +10,7 @@
 //   s.pop(); // returns 2
 //   s.pop(); // returns 1
 
+// JS implementation of a stack (we use an array to hold the data):
 class Stack {
 	constructor() {
 		this.data = [];
@@ -31,4 +32,5 @@ class Stack {
 module.exports = Stack;
 
 // STACK DATA STRUCTURE
-// it's similar to a queue with some differences: we are going to deal with a list of records. the difference between a stack and queue is the order in which items are removed: with stacks we have FILO
+// it's similar to a queue with some differences: we are going to deal with a list of records. the difference between a stack and queue is the order in which items are removed: with stacks we have FILO. Also, we talk about 'push' and 'pop' records in and out of the stack.
+// you don't have to do just this in an interview question, what usually happens is that you are told to do something using a queue, or a stack, etc.

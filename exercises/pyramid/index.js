@@ -160,28 +160,5 @@
 //
 //
 //
-const pyramid = (n, row = 0, level = '') => {
-	if (row === n) {
-		return;
-	}
-
-	const columns = n * 2 - 1;
-	if (level.length === columns) {
-		console.log(level);
-		return pyramid(n, row + 1);
-	}
-
-	const midIndex = Math.floor(columns / 2);
-	const sidePounds = row;
-	if (
-		level.length >= midIndex - sidePounds &&
-		level.length <= midIndex + sidePounds
-	) {
-		level += '#';
-	} else {
-		level += ' ';
-	}
-	pyramid(n, row, level);
-};
 
 module.exports = pyramid;

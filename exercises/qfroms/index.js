@@ -11,6 +11,7 @@
 //     q.peek();  // returns 1
 //     q.remove(); // returns 1
 //     q.remove(); // returns 2
+// THIS IS A VERY USUAL INERVIEW QUESTION INVOLVING QUEUES AND STACKS!!
 
 const Stack = require('./stack');
 
@@ -25,11 +26,33 @@ class Queue {
 	}
 
 	remove() {
-		return this.stack1.data.reverse().pop();
+		let removed;
+		while (this.stack1.peek()) {
+			removed = this.stack1.peek();
+			this.stack2.push(this.stack1.pop());
+		}
+
+		this.stack2.pop();
+
+		while (this.stack2.peek()) {
+			this.stack1.push(this.stack2.pop());
+		}
+
+		return removed;
 	}
 
 	peek() {
-		return this.stack1.data.reverse()[this.stack1.data.length - 1];
+		let peeked;
+		while (this.stack1.peek()) {
+			peeked = this.stack1.peek();
+			this.stack2.push(this.stack1.pop());
+		}
+
+		while (this.stack2.peek()) {
+			this.stack1.push(this.stack2.pop());
+		}
+
+		return peeked;
 	}
 }
 
