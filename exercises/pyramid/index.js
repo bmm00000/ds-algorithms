@@ -131,20 +131,21 @@
 // 	}
 // };
 //
+//
+//
 // const pyramid = (n, row = 0, level = '') => {
-// 	const columns = n * 2 - 1;
-// 	const midIndex = Math.floor(columns / 2);
-// 	let sidePounds = row;
-
 // 	if (row === n) {
 // 		return;
 // 	}
 
+// 	const columns = n * 2 - 1;
 // 	if (level.length === columns) {
 // 		console.log(level);
 // 		return pyramid(n, row + 1);
 // 	}
 
+// 	const midIndex = Math.floor(columns / 2);
+// 	const sidePounds = row;
 // 	if (
 // 		level.length >= midIndex - sidePounds &&
 // 		level.length <= midIndex + sidePounds
@@ -155,7 +156,9 @@
 // 	}
 // 	pyramid(n, row, level);
 // };
-
+//
+//
+//
 // as in the 'steps' exercise, we also have two kinds of solutions: iterative and recursive.
 //
 //

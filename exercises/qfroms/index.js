@@ -14,7 +14,6 @@
 // THIS IS A VERY USUAL INERVIEW QUESTION INVOLVING QUEUES AND STACKS!!
 
 const Stack = require('./stack');
-
 // class Queue {
 // 	constructor() {
 // 		this.stack1 = new Stack();
@@ -26,14 +25,13 @@ const Stack = require('./stack');
 // 	}
 
 // 	remove() {
-// 		let removed;
 // 		while (this.stack1.peek()) {
-// 			removed = this.stack1.peek();
 // 			this.stack2.push(this.stack1.pop());
 // 		}
 
-// 		this.stack2.pop();
+// 		const removed = this.stack2.pop();
 
+// 		// we want to go back to the initial position:
 // 		while (this.stack2.peek()) {
 // 			this.stack1.push(this.stack2.pop());
 // 		}
@@ -42,12 +40,13 @@ const Stack = require('./stack');
 // 	}
 
 // 	peek() {
-// 		let peeked;
 // 		while (this.stack1.peek()) {
-// 			peeked = this.stack1.peek();
 // 			this.stack2.push(this.stack1.pop());
 // 		}
 
+// 		const peeked = this.stack2.peek();
+
+// 		// we want to go back to the initial position:
 // 		while (this.stack2.peek()) {
 // 			this.stack1.push(this.stack2.pop());
 // 		}
@@ -55,46 +54,5 @@ const Stack = require('./stack');
 // 		return peeked;
 // 	}
 // }
-
-class Queue {
-	constructor() {
-		this.stack1 = new Stack();
-		this.stack2 = new Stack();
-	}
-
-	add(record) {
-		this.stack1.push(record);
-	}
-
-	remove() {
-		while (this.stack1.peek()) {
-			this.stack2.push(this.stack1.pop());
-		}
-
-		const removed = this.stack2.pop();
-
-		// we want to go back to the initial position:
-		while (this.stack2.peek()) {
-			this.stack1.push(this.stack2.pop());
-		}
-
-		return removed;
-	}
-
-	peek() {
-		while (this.stack1.peek()) {
-			this.stack2.push(this.stack1.pop());
-		}
-
-		const peeked = this.stack2.peek();
-
-		// we want to go back to the initial position:
-		while (this.stack2.peek()) {
-			this.stack1.push(this.stack2.pop());
-		}
-
-		return peeked;
-	}
-}
 
 module.exports = Queue;
