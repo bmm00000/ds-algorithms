@@ -12,7 +12,7 @@ class Node {
 
 // the LinkedList class is going to have a bunch of methods, but only a property (head). Therefore, the LinkedList class has no idea about how many nodes belong to the linked list, or what data exist in a the linked list; the LinkedList class only knows about the first node, and if it wants to answer any questions about the linked list itself, it will have to crawl over the linked list starting from the first node, so it will find out what it's looking for. therefore, the way we will operate is first instantiate the linkedlist, and then associate nodes with it:
 // const list = new LinkedList()
-// list.head = new Node('hello')
+// list.head = new Node('hello') (but we will have an 'insertFirst' method, so we don't need to do that)
 
 class LinkedList {
 	constructor() {
@@ -46,16 +46,102 @@ class LinkedList {
 	}
 
 	getLast() {
-		let last = this.head;
+		// let last = this.head;
 
-		while (last) {
-			if (!last.next) {
-				return;
-			}
-			last = last.next;
+		// while (last) {
+		// 	if (!last.next) {
+		// 		return last;
+		// 	}
+		// 	last = last.next;
+		// }
+
+		// return last;
+		// or:
+		if (!this.head) {
+			return null;
 		}
 
-		return last;
+		let node = this.head;
+
+		while (node) {
+			if (!node.next) {
+				return node;
+			}
+			node = node.next;
+		}
+	}
+
+	clear() {
+		this.head = null;
+	}
+
+	removeFirst() {
+		// if (this.head) {
+		// 	this.head = this.head.next;
+		// }
+		// or:
+		if (!this.head) {
+			return;
+		}
+		this.head = this.head.next;
+	}
+
+	removeLast() {
+		if (!this.head) {
+			return;
+		}
+
+		if (!this.head.next) {
+			return (this.head = null);
+		}
+
+		let previous = this.head;
+		let node = this.head.next;
+
+		while (node.next) {
+			previous = node;
+			node = node.next;
+		}
+		previous.next = null;
+	}
+
+	insertLast(data) {
+		// const node = new Node(data);
+
+		// we take into account the possibility that there are no nodes:
+		// if (!this.head) {
+		// 	return (this.head = node);
+		// }
+
+		// this.getLast().next = node;
+		// //
+		// or:
+		// //
+		const last = this.getLast();
+		const node = new Node(data);
+
+		if (last) {
+			// there are some nodes in our chain:
+			last.next = node;
+		} else {
+			// the chain is empty:
+			this.header = node;
+		}
+	}
+
+	getAt(index) {
+		if (!this.head) {
+			return;
+		}
+
+		let counter = 0;
+		let node = this.head;
+
+		while (counter !== index) {
+			counter++;
+			node = node.next;
+		}
+		return node;
 	}
 }
 
