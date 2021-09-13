@@ -125,23 +125,46 @@ class LinkedList {
 			last.next = node;
 		} else {
 			// the chain is empty:
-			this.header = node;
+			this.head = node;
 		}
 	}
 
 	getAt(index) {
-		if (!this.head) {
-			return;
-		}
+		// the following if statement is unnecessary, because we are covering this situation at the end:
+		// if (!this.head) {
+		// 	return null;
+		// }
 
 		let counter = 0;
 		let node = this.head;
 
-		while (counter !== index) {
+		while (node) {
+			if (counter === index) {
+				return node;
+			}
 			counter++;
 			node = node.next;
+			// if the index is larger than our list, at some point node will be null, and it will exit the loop, so we have this corner case covered.
 		}
-		return node;
+
+		return null; // this is in case the index is larger than our list.
+	}
+
+	removeAt(index) {
+		let counter = 0;
+		let node = this.head;
+		let nextNode = node.next;
+
+		while (node && nextNode) {
+			if (counter === index) {
+				node.next = nextNode.next;
+			} else {
+				counter++;
+				node = node.next;
+				nextNode = node.next;
+			}
+		}
+		return;
 	}
 }
 
