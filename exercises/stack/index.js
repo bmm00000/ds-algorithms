@@ -11,23 +11,23 @@
 //   s.pop(); // returns 1
 
 // JS implementation of a stack (we use an array to hold the data):
-class Stack {
-	constructor() {
-		this.data = [];
-	}
+// class Stack {
+// 	constructor() {
+// 		this.data = [];
+// 	}
 
-	push(num) {
-		this.data.push(num);
-	}
+// 	push(num) {
+// 		this.data.push(num);
+// 	}
 
-	pop() {
-		return this.data.pop();
-	}
+// 	pop() {
+// 		return this.data.pop();
+// 	}
 
-	peek() {
-		return this.data[this.data.length - 1];
-	}
-}
+// 	peek() {
+// 		return this.data[this.data.length - 1];
+// 	}
+// }
 
 module.exports = Stack;
 
