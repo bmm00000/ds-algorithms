@@ -40,7 +40,7 @@ function chunk(array, size) {
 	// }
 	// return chunked;
 	//
-	// note that 'slice' works for both arrays and strings, but 'splice' only for arrays. slice returns another array (shallow copy), while splice mutates the original array. strings are inmutable, therefore splice does not work for strings.
+	// note that 'slice' works for both arrays and strings, but 'splice' only for arrays. slice returns another array (shallow copy) or string, while splice mutates the original array. strings are inmutable, therefore splice does not work for strings.
 	//
 	//
 	//
