@@ -45,6 +45,12 @@ function anagrams(stringA, stringB) {
 	// function cleanStr(str) {
 	// 	return str.replace(/[^\w]/g, '').toLowerCase();
 	// }
+	//
+	// or even better:
+	// const cleaner = (str) => {
+	// 	return str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
+	// };
+	// return cleaner(stringA) === cleaner(stringB);
 	// therefore, we have an iterative approach and another solutions based on methods.
 	//
 	//

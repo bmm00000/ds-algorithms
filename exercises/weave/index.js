@@ -46,4 +46,20 @@ const Queue = require('./queue');
 // 	return finalQ;
 // }
 
+const weave = (q1, q2) => {
+	const weavedQ = new Queue();
+
+	while (q1.peek() || q2.peek()) {
+		if (q1.peek()) {
+			weavedQ.add(q1.remove());
+		}
+
+		if (q2.peek()) {
+			weavedQ.add(q2.remove());
+		}
+	}
+
+	return weavedQ;
+};
+
 module.exports = weave;
