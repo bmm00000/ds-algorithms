@@ -10,7 +10,7 @@ class Node {
 	}
 }
 
-// the LinkedList class is going to have a bunch of methods, but only a property (head). Therefore, the LinkedList class has no idea about how many nodes belong to the linked list, or what data exist in a the linked list; the LinkedList class only knows about the first node, and if it wants to answer any questions about the linked list itself, it will have to crawl over the linked list starting from the first node, so it will find out what it's looking for. therefore, the way we will operate is first instantiate the linkedlist, and then associate nodes with it:
+// the LinkedList class is going to have a bunch of methods, but only a property (head). Therefore, the LinkedList class has no idea about how many nodes belong to the linked list, or what data exist in a the linked list; the LinkedList class only knows about the first node, and if it wants to answer any questions about the linked list itself, it will have to crawl over the linked list starting from the first node, so it will find out what it's looking for (that's what we have the methods for). therefore, the way we will operate is first instantiate the linkedlist, and then associate nodes with it:
 // const list = new LinkedList()
 // list.head = new Node('hello') (but we will have an 'insertFirst' method, so we don't need to do that)
 
@@ -32,12 +32,10 @@ class LinkedList {
 	size() {
 		let counter = 0;
 		let node = this.head;
-
 		while (node) {
 			counter++;
 			node = node.next;
 		}
-
 		return counter;
 	}
 
@@ -54,21 +52,33 @@ class LinkedList {
 		// 	}
 		// 	last = last.next;
 		// }
-
+		// // we need to do this just in case there is no head:
 		// return last;
+
 		// or:
-		if (!this.head) {
-			return null;
+		// if (!this.head) {
+		// 	return null;
+		// }
+
+		// let node = this.head;
+
+		// while (node) {
+		// 	if (!node.next) {
+		// 		return node;
+		// 	}
+		// 	node = node.next;
+		// }
+
+		// or:
+		let lastNode = this.head;
+
+		while (lastNode.next) {
+			lastNode = lastNode.next;
 		}
 
-		let node = this.head;
+		return lastNode;
 
-		while (node) {
-			if (!node.next) {
-				return node;
-			}
-			node = node.next;
-		}
+		// WATCH OUT! : while(lastNode){(if you don't return here, it will be an infinite loop)}
 	}
 
 	clear() {
