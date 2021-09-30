@@ -100,14 +100,11 @@ class LinkedList {
 		if (!this.head) {
 			return;
 		}
-
 		if (!this.head.next) {
 			return (this.head = null);
 		}
-
 		let previous = this.head;
-		let node = this.head.next;
-
+		let node = previous.next;
 		while (node.next) {
 			previous = node;
 			node = node.next;
@@ -116,48 +113,62 @@ class LinkedList {
 	}
 
 	insertLast(data) {
-		// const node = new Node(data);
-
+		const node = new Node(data);
 		// we take into account the possibility that there are no nodes:
-		// if (!this.head) {
-		// 	return (this.head = node);
-		// }
-
-		// this.getLast().next = node;
+		if (!this.head) {
+			return (this.head = node);
+		}
+		this.getLast().next = node;
 		// //
 		// or:
 		// //
-		const last = this.getLast();
-		const node = new Node(data);
-
-		if (last) {
-			// there are some nodes in our chain:
-			last.next = node;
-		} else {
-			// the chain is empty:
-			this.head = node;
-		}
+		// const last = this.getLast();
+		// const node = new Node(data);
+		// if (last) {
+		// 	// there are some nodes in our chain:
+		// 	last.next = node;
+		// } else {
+		// 	// the chain is empty:
+		// 	this.head = node;
+		// }
 	}
 
 	getAt(index) {
-		// the following if statement is unnecessary, because we are covering this situation at the end:
-		// if (!this.head) {
-		// 	return null;
-		// }
+		if (!this.head) {
+			return null;
+		}
+
+		if (index >= this.size() || index < 0) {
+			return null;
+		}
 
 		let counter = 0;
 		let node = this.head;
 
-		while (node) {
-			if (counter === index) {
-				return node;
-			}
+		while (counter !== index) {
 			counter++;
 			node = node.next;
-			// if the index is larger than our list, at some point node will be null, and it will exit the loop, so we have this corner case covered.
 		}
 
-		return null; // this is in case the index is larger than our list.
+		return node;
+		// with this solution, keep in mind that we are iterating through our entire linked list twice (when we use the size() method and then in the while loop, which is not the most efficient thing in the world). that's why we can use another way without using the 'size' method:
+		// the following if statement is unnecessary, because we are covering this situation at the end, so you can delete it:
+		// if (!this.head) {
+		// 	return null;
+		// }
+
+		// let counter = 0;
+		// let node = this.head;
+
+		// while (node) {
+		// 	if (counter === index) {
+		// 		return node;
+		// 	}
+		// 	counter++;
+		// 	node = node.next;
+		// 	// if the index is larger than our list, at some point node will be null, and it will exit the loop, so we have this corner case covered.
+		// }
+		// return null; // this is in case the index is larger than our list.
 	}
 
 	removeAt(index) {
