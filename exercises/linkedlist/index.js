@@ -172,20 +172,62 @@ class LinkedList {
 	}
 
 	removeAt(index) {
-		let counter = 0;
-		let node = this.head;
-		let nextNode = node.next;
-
-		while (node && nextNode) {
-			if (counter === index) {
-				node.next = nextNode.next;
-			} else {
-				counter++;
-				node = node.next;
-				nextNode = node.next;
-			}
+		if (!this.head) {
+			return null;
 		}
-		return;
+
+		// the following will work even if we only have one node in the list:
+		if (index === 0) {
+			return (this.head = this.getAt(1));
+			// or:
+			// return this.head = this.head.next
+		}
+
+		const previous = this.getAt(index - 1);
+		// one option:
+		// const next = this.getAt(index + 1);
+		// previous.next = next;
+
+		// another option:
+		// (and you don't need to declare 'next' with this option):
+		if (!previous || !previous.next) {
+			return;
+			// we are adding !previous.next because if we don't do so, the test would fail if previous is the last node, because we are trying to get next of undefined (null).
+		}
+		previous.next = previous.next.next;
+
+		// ALL AND ALL, here we are using this.getAt(). In an interview, using methods that you already built, it's very good because it shows that you can re-use your code, and the solutions are typically much more straightforward.
+	}
+
+	insertAt(data, index) {
+		const node = new Node(data);
+
+		if (!this.head) {
+			return (this.head = node);
+		}
+
+		if (index === 0) {
+			node.next = this.head;
+			return (this.head = node);
+			// or (remember, the Node class takes a second argument):
+			// return this.head = new Node(data, this.head)
+		}
+
+		if (index >= this.size() || index < 0) {
+			return (this.getLast().next = node);
+		}
+
+		// one option:
+		// const previous = this.getAt(index - 1);
+		// const next = this.getAt(index);
+		// previous.next = node;
+		// node.next = next;
+
+		// another option:
+		const previous = this.getAt(index - 1) || this.getLast();
+		// with the former syntax, 'previous' will be this.getLast() when this.getAt(index - 1) returns a falsy value (in our case, null)
+		const newNode = new Node(data, previous.next);
+		previous.next = newNode;
 	}
 }
 
