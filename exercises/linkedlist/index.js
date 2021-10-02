@@ -229,6 +229,21 @@ class LinkedList {
 		const newNode = new Node(data, previous.next);
 		previous.next = newNode;
 	}
+
+	forEach(fn) {
+		if (!this.head) {
+			return;
+		}
+
+		let node = this.head;
+		let index = 0;
+
+		while (node) {
+			fn(node, index);
+			node = node.next;
+			index++;
+		}
+	}
 }
 
 module.exports = { Node, LinkedList };
