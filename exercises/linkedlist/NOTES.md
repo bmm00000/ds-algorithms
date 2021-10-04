@@ -16,3 +16,19 @@ THIS FORWARD LOOKING THINKING WILL BLOW AWAY YOUR INTERVIEWER!
 then, if you need to do a insertFirst method anyways, you can use insertAt inside of it (see screenshot)
 
 VIDEOS ABOUT GENERATORS-ITERATORS: will probably not appear on interviews, but it's a way to completely blow away the interviewer.
+
+Read–eval–print loop
+A read–eval–print loop, also termed an interactive toplevel or language shell, is a simple interactive computer programming environment that takes single user inputs, executes them, and returns the result to the user; a program written in a REPL environment is executed piecewise.
+
+WE CAN USE THE GENERATOR OBJECT TO WALK THROUGH SEGMENTS OF THE CODE OF OUR FUNCTION.
+when you call the method 'next' of the generator, when the 'yield' statement is found, execution of that function is paused.
+
+practical use of generators:
+screenshot: we want to write a function that iterates through the values of the tree, and collects them into a single array, in a depth first search fashion (go as deep as you can, and then continue iterating). Therefore, the result that you want is 1,2,4,3.
+
+another practical use of a generator function:
+create of 'for of' loop in the linked list.
+
+REMEMBER:
+Generators are iterators, but not all iterators are generators.
+An iterator is typically something that has a next method to get the next element from a stream. A generator is an iterator that is tied to a function.
