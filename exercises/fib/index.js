@@ -8,6 +8,30 @@
 // Example:
 //   fib(4) === 3
 
+const memoize = (fn) => {
+	const valStore = {};
+	return function (...args) {
+		// rest syntax
+		// how do the arguments pass from fn to this function?
+		if (valStore[args]) {
+			return valStore[args];
+		}
+		const value = fn(...args); // spread syntax
+		valStore[args] = value;
+		return value;
+	};
+};
+
+// watch out, you will need to use the old function syntax as follows, or you won't be able to reassign 'fib'
+function fib(n) {
+	if (n < 2) {
+		return n;
+	}
+	return fib(n - 1) + fib(n - 2);
+}
+
+fib = memoize(fib);
+
 // function fib(n) {
 // 	// const result = [0, 1];
 // 	// for (let i = 2; i <= n; i++) {
