@@ -69,7 +69,7 @@ fib = memoize(fib);
 // 			return cache[args];
 // 		}
 
-// 		// if we have never called the function with these set of arguments before, then call the function, take the result and cache it inside the cache object:
+// 		// if we have never called the function with these set of arguments before, then call the function, take the result and cache it inside the cache object (when you use 'apply', you use the args as an array):
 // 		const result = fn.apply(this, args);
 // 		cache[args] = result;
 
