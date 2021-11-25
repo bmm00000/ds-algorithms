@@ -34,16 +34,24 @@ function reverse(str) {
 	//
 	//
 	//
+	// let newStr = '';
+	// let i = 0;
+	// while (i < str.length) {
+	// 	newStr = str[i] + newStr;
+	// 	debugger;
+	// 	i++;
+	// }
+	// return newStr;
 	let newStr = '';
 	let i = 0;
 	while (i < str.length) {
 		newStr = str[i] + newStr;
-		debugger;
 		i++;
 	}
 	return newStr;
+
+	// REVISE REDUCE METHOD AND COMPARE PERFORMANCE!
 }
-reverse('jasljf;as');
 
 // reverse('hellothere');
 // and then in the CLI you type 'node inspect index.js', then you type 'c' (continue) to execute the function until it pauses in the 'debugger' statement. then you type 'repl' and then you can type to inspect the variables that you are dealing with.
