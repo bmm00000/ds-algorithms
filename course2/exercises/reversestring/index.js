@@ -31,27 +31,10 @@ function reverse(str) {
 	// return reversed;
 	//
 	// return str.split('').reduce((reversed, char) => char + reversed, '');
-	//
-	//
-	//
-	// let newStr = '';
-	// let i = 0;
-	// while (i < str.length) {
-	// 	newStr = str[i] + newStr;
-	// 	debugger;
-	// 	i++;
-	// }
-	// return newStr;
-	let newStr = '';
-	let i = 0;
-	while (i < str.length) {
-		newStr = str[i] + newStr;
-		i++;
-	}
-	return newStr;
-
-	// REVISE REDUCE METHOD AND COMPARE PERFORMANCE!
 }
+
+// we have used two approaches: iterative (three kinds of loops), and methods (two options with methods).
+// the iterative approach and the 'reduce' method are O(n), but the 'reverse' method is O(1)
 
 // reverse('hellothere');
 // and then in the CLI you type 'node inspect index.js', then you type 'c' (continue) to execute the function until it pauses in the 'debugger' statement. then you type 'repl' and then you can type to inspect the variables that you are dealing with.
