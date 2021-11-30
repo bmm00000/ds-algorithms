@@ -21,8 +21,7 @@ function palindrome(str) {
 	//
 	// return str.split('').every((char, i) => char === str[str.length - 1 - i]);
 	//
-	//
-	//
+	// the time complexity of all solutions is O(n)
 }
 
 module.exports = palindrome;

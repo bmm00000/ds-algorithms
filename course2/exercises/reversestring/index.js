@@ -34,7 +34,7 @@ function reverse(str) {
 }
 
 // we have used two approaches: iterative (three kinds of loops), and methods (two options with methods).
-// the iterative approach and the 'reduce' method are O(n), but the 'reverse' method is O(1)
+// the time complexity of all approaches are O(n)
 
 // reverse('hellothere');
 // and then in the CLI you type 'node inspect index.js', then you type 'c' (continue) to execute the function until it pauses in the 'debugger' statement. then you type 'repl' and then you can type to inspect the variables that you are dealing with.
