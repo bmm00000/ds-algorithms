@@ -19,7 +19,7 @@ function fib(n) {
 
 console.log(fib(3));
 
-// his solution:
+// course's solution:
 function fib(n) {
 	const numbers = [1, 1];
 	for (let i = 2; i < n + 1; i++) {
