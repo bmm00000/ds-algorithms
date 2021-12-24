@@ -1,0 +1,9 @@
+search algorithms are programs that help us to find things in arrays.
+
+we are going to focus on the Linear Search algorithm, and the Binary Search algorithm (also we will take a look at a concept called "Master Theorem", which allows us to judge the performance of a recursive algorithm if we can't just count execution steps)
+
+you can use different algorithms for different kinds of lists, and these different algorithms will have different time complexities. we are going to have a look at two types of algorithms
+
+(remember that in our examples we are going to use just numbers to make it easier, but we could have any type of data in our arrays)
+
+the linear search algorithm iterates through each element of the algorithm in order until it finds THE FIRST CASE OF what we are looking for, and then it returns the index of that value (keep in mind that, if you have a second case of what you are looking for, the algorithm would stop once it finds it for the first time)
