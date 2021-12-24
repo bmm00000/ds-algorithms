@@ -73,23 +73,23 @@ fib(5);
 
 // the problem with this approach is that we have one object, and if we call 'fib' multiple times, then we will be reusing this object. this would be great if what we want in subsequent calls is to take advange of the values that we already have in 'memo' from former calls. however, if you have a function, where the input produces totally different values for 'memo', then you would get incorrect values in your next function executions.
 
-// in order to make our approach reusable, what we are going to do is the following: every recursive process (every fibonacci number we are trying to retreive) gets its own storage which is only used for this recursive tree. for instance, in our example, fib(4) and fib(5) will use different storages. therefore, we will pass a second argument ('memo') and that will be our storage:
+// in order to make our approach reusable, we will pass a second argument ('memo'), so we have a different storage object every time we call the function. for example, fib(4) and fib(5) will use different storages. this storage object is passed as an argument every time we call the function, ie, is passed into into every recursive process (every fibonacci number we are trying to retreive) and is only used for this recursive tree:
 
-let counter; // we add this counter to count expression executions.
+let counter; // we add this counter to count expression executions, and see our improvement compared to the former approach.
 function fib(n, memo) {
 	counter++;
 	let result;
 	if (memo[n]) {
 		return memo[n];
 	}
-	if (n === 1 || n === 2) {
+	if (n === 0 || n === 1) {
 		result = 1;
 	} else {
 		result = fib(n - 1, memo) + fib(n - 2, memo);
 	}
 	memo[n] = result;
 	return result;
-	// this is the same that we did before, only that now we use the 'result' variable. we do that so that we can store the results in our intermediate storage.
+	// this is the same that we did before, only that now we use the 'result' variable. we do that so that we can store the results in our intermediate storage object.
 }
 
 fib(5, {});
@@ -108,3 +108,14 @@ fib(50, {});
 console.log(counter);
 counter = 0;
 // see the 'counter's consoled log in the screenshot, and compare with what we had before.
+
+// so what is the time complexity now?
+// see screenshot, and you can also try more examples in the console: if you double the input, you more or less double the counter (and the relationship between the input and the counter is more or less 2n). therefore, we have O(n) now, WHICH IS A HUGE IMPROVEMENT from what we had before (exponential time complexity)
+
+// if we want to see how the storage object looks like (see screenshot):
+const memo = {};
+fib(5, memo);
+console.log(counter);
+console.log(memo);
+counter = 0;
+// we see in the storage object that we end up with the fibonacci sequence until the position that we want to retrieve. therefore, what we are doing in this recursive approach is not that different to what we did earlier with the loop based solution (the BOTTOM-UP APPROACH) (we are building all the data we need up to the end that we need, and then we get that value and finish the function execution. the bottom up approach sometimes is an alternative to the recursive solution (in our case, you can either use the dynamic programming solution or the bottom up approach, since both have the same time complexity). however, as we will see, in other problems, recursion will give us the most elegant solution, or it's the only solution (in the fibonacci problem that's not the case, as we have seen; the only solution to the fibonacci problem that you want to avoid is the recursive solution without memoization)
