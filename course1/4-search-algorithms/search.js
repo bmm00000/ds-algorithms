@@ -43,7 +43,7 @@ const findElement = (arr, element) => {
 			element.age === item.age
 		) {
 			return index;
-			// now we have a very specific comparison (it would also work if we wantd to compare it just by name)
+			// now we have a very specific comparison (it would also work if we wantd to compare it just by name, or just by age)
 		}
 		if (item === element) {
 			return index;
@@ -98,10 +98,16 @@ const findElement = (sortedArr, element) => {
 	let startIndex = 0;
 	let endIndex = sortedArr.length - 1;
 	while (startIndex <= endIndex) {
-		const middleIndex = Math.floor((endIndex - startIndex) / 2);
+		const middleIndex = startIndex + Math.floor((endIndex - startIndex) / 2);
 
 		if (element === sortedArr[middleIndex]) {
 			return middleIndex;
+		}
+
+		if (sortedArr[middleIndex] < element) {
+			startIndex = middleIndex + 1;
+		} else {
+			endIndex = middleIndex - 1;
 		}
 	}
 };
@@ -109,4 +115,4 @@ const findElement = (sortedArr, element) => {
 const arr = [1, 3, 5, 6, 77, 888];
 console.log(findElement(arr, 77));
 
-// take into account that you can also use a comparatorFn here, the same way that we did in the linear search algo.
+// take into account that you can also use a comparatorFn here (if you work with reference types like objects, etc.), the same way that we did in the linear search algo.
