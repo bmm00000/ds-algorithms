@@ -98,6 +98,7 @@ const findElement = (sortedArr, element) => {
 	let startIndex = 0;
 	let endIndex = sortedArr.length - 1;
 	while (startIndex <= endIndex) {
+		console.log('running...'); // if we want to find out how many times this loop runs
 		const middleIndex = startIndex + Math.floor((endIndex - startIndex) / 2);
 
 		if (element === sortedArr[middleIndex]) {
@@ -116,3 +117,33 @@ const arr = [1, 3, 5, 6, 77, 888];
 console.log(findElement(arr, 77));
 
 // take into account that you can also use a comparatorFn here (if you work with reference types like objects, etc.), the same way that we did in the linear search algo.
+
+// if you have a sorted array, then the numbers of iterations needed is less than if we use the Linear Search algo (check the console.log above)
+
+// rule of thumb: if you are splitting the problem set into two or even smaller with every iteration (even divided by 3 or 4), you are then dealing with Logarithmic Time Complexity.
+
+// we implmeneted a loop based solution to the binary search algo, but we can also implement a recursive solution:
+
+const findElement = (sortedArr, element) => {
+	console.log(sortedArr);
+
+	let startIndex = 0;
+	let endIndex = sortedArr.length - 1;
+	const middleIndex = Math.floor((endIndex - startIndex) / 2);
+
+	// this is our base case that will get us out of the recursion:
+	if (element === sortedArr[middleIndex]) {
+		return middleIndex;
+	}
+
+	if (sortedArr[middleIndex] < element) {
+		startIndex = middleIndex + 1;
+		return findElement(sortedArr.slice(startIndex), element);
+	} else {
+		endIndex = middleIndex;
+		return findElement(sortedArr.slice(startIndex, endIndex), element);
+	}
+};
+
+const arr = [1, 3, 5, 6, 77, 888];
+console.log(findElement(arr, 77));
