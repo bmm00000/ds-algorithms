@@ -124,26 +124,53 @@ console.log(findElement(arr, 77));
 
 // we implmeneted a loop based solution to the binary search algo, but we can also implement a recursive solution:
 
+// my solution:
 const findElement = (sortedArr, element) => {
-	console.log(sortedArr);
+	const findIt = (subArr, elem) => {
+		let startIndex = 0;
+		let endIndex = subArr.length - 1;
+		const middleIndex = Math.floor((endIndex - startIndex) / 2);
 
-	let startIndex = 0;
-	let endIndex = sortedArr.length - 1;
-	const middleIndex = Math.floor((endIndex - startIndex) / 2);
+		// this is our base case that will get us out of the recursion:
+		if (elem === subArr[middleIndex]) {
+			return sortedArr.indexOf(elem);
+		}
 
-	// this is our base case that will get us out of the recursion:
-	if (element === sortedArr[middleIndex]) {
-		return middleIndex;
-	}
+		if (subArr[middleIndex] < elem) {
+			startIndex = middleIndex + 1;
+			return findIt(subArr.slice(startIndex), elem);
+		} else {
+			endIndex = middleIndex;
+			return findIt(subArr.slice(startIndex, endIndex), elem);
+		}
+	};
 
-	if (sortedArr[middleIndex] < element) {
-		startIndex = middleIndex + 1;
-		return findElement(sortedArr.slice(startIndex), element);
-	} else {
-		endIndex = middleIndex;
-		return findElement(sortedArr.slice(startIndex, endIndex), element);
-	}
+	return findIt(sortedArr, element);
 };
 
 const arr = [1, 3, 5, 6, 77, 888];
 console.log(findElement(arr, 77));
+
+// course's solution:
+const findElement = (sortedArr, element, offset) => {
+	// console.log('running...'); // if we want to find out how many times this loop runs
+	let startIndex = 0;
+	let endIndex = sortedArr.length - 1;
+	const middleIndex = startIndex + Math.floor((endIndex - startIndex) / 2);
+
+	if (element === sortedArr[middleIndex]) {
+		return middleIndex + offset;
+	}
+
+	if (sortedArr[middleIndex] < element) {
+		startIndex = middleIndex + 1;
+		offset = offset + middleIndex + 1;
+	} else {
+		endIndex = middleIndex - 1;
+	}
+
+	return findElement(sortedArr.slice(startIndex, endIndex + 1, offset));
+};
+
+const arr = [1, 3, 5, 6, 77, 888];
+console.log(findElement(arr, 77, 0));
