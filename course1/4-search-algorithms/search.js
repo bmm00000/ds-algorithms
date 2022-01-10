@@ -120,7 +120,7 @@ console.log(findElement(arr, 77));
 
 // if you have a sorted array, then the numbers of iterations needed is less than if we use the Linear Search algo (check the console.log above)
 
-// rule of thumb: if you are splitting the problem set into two or even smaller with every iteration (even divided by 3 or 4), you are then dealing with Logarithmic Time Complexity.
+// rule of thumb: if you are splitting the problem set into two (or even smaller) with every iteration (eg. divided by 3 or 4), you are then dealing with Logarithmic Time Complexity.
 
 // we implmeneted a loop based solution to the binary search algo, but we can also implement a recursive solution:
 
@@ -154,9 +154,10 @@ console.log(findElement(arr, 77));
 // course's solution:
 const findElement = (sortedArr, element, offset) => {
 	// console.log('running...'); // if we want to find out how many times this loop runs
+	// console.log(sortedArr, element) // in the course, we console log the array, but it's even better to use a breakpoint in the dev tools.
 	let startIndex = 0;
 	let endIndex = sortedArr.length - 1;
-	const middleIndex = startIndex + Math.floor((endIndex - startIndex) / 2);
+	const middleIndex = Math.floor((endIndex - startIndex) / 2);
 
 	if (element === sortedArr[middleIndex]) {
 		return middleIndex + offset;
@@ -166,11 +167,18 @@ const findElement = (sortedArr, element, offset) => {
 		startIndex = middleIndex + 1;
 		offset = offset + middleIndex + 1;
 	} else {
-		endIndex = middleIndex - 1;
+		endIndex = middleIndex;
 	}
 
-	return findElement(sortedArr.slice(startIndex, endIndex + 1, offset));
+	return findElement(
+		sortedArr.slice(startIndex, endIndex + 1),
+		element,
+		offset
+	);
 };
 
 const arr = [1, 3, 5, 6, 77, 888];
 console.log(findElement(arr, 77, 0));
+
+// since we hare halving the array before we call the function again, we also have Logarithmic Time Complexity (we are also calling 'slice', which also costs some performance. however, we will not consider the cost of 'slice', since it would only make a difference if we measured performance for very large arrays. the general nature of this algo is not impacted by 'slice')
+// this example is quite clear of splitting the problem into half, but if you wanted to derive this in less clear situations, we have a theorem (a formula) for such recursive calls (ONLY FOR RECURSIVE ALGOS WHERE YOU SPLIT YOUR PROBLEM IN SMALLER CHUNKS; this formula will not work for other recusive approaches).

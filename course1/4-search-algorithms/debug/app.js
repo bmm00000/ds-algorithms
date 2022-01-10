@@ -2,7 +2,7 @@ const findElement = (sortedArr, element, offset) => {
 	// console.log('running...'); // if we want to find out how many times this loop runs
 	let startIndex = 0;
 	let endIndex = sortedArr.length - 1;
-	const middleIndex = startIndex + Math.floor((endIndex - startIndex) / 2);
+	const middleIndex = Math.floor((endIndex - startIndex) / 2);
 
 	if (element === sortedArr[middleIndex]) {
 		return middleIndex + offset;
@@ -12,7 +12,7 @@ const findElement = (sortedArr, element, offset) => {
 		startIndex = middleIndex + 1;
 		offset = offset + middleIndex + 1;
 	} else {
-		endIndex = middleIndex - 1;
+		endIndex = middleIndex;
 	}
 
 	return findElement(
