@@ -1,0 +1,3 @@
+sorting algorithms will allow us to sort (ascending or descending, but the algos are the same) arrays of data.
+
+Bubble Sort: compare two items at a time and sort them. Go through the entire array multiple times until all pairs were compared and sorted.
