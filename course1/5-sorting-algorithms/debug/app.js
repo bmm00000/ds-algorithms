@@ -1,14 +1,17 @@
 const sort = (arr) => {
 	const resultArray = [...arr];
-	// we do this because we don't want to mutate the original array
+	// we do this because we don't want to mutate the original array. you could also do the following:
+	// const resultArray = arr.slice()
 
-	for (let i = 0; i < resultArray.length - 1; i++) {
-		for (let q = i + 1; q < resultArray.length; q++) {
-			const firstNum = resultArray[i];
-			const secondNum = resultArray[q];
-			if (firstNum > secondNum) {
-				resultArray[i] = secondNum;
-				resultArray[q] = firstNum;
+	for (let outer = 0; outer < resultArray.length; outer++) {
+		let outerEl = resultArray[outer];
+		for (let inner = outer + 1; inner < resultArray.length; inner++) {
+			let innerEl = resultArray[inner];
+			if (outerEl > innerEl) {
+				resultArray[outer] = innerEl;
+				resultArray[inner] = outerEl;
+				outerEl = resultArray[outer];
+				innerEl = resultArray[inner]; // we don't need to do this?
 			}
 		}
 	}
