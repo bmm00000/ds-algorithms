@@ -63,3 +63,42 @@ console.log(sortedArray);
 // in the diagram, in the second iteration, we pick the next pivot element in the Large array becuase the other two arrays have only one element, meaning that they are already sorted (respective to each other). but keep in mind that we do this for every array that has more than one element.
 
 // at the end, we will end up with a bunch of elements, each one in a different array, and we will concatenate all these arrays together
+
+const sort = (arr) => {
+	const copiedArray = [...arr];
+
+	if (copiedArray.length <= 1) {
+		return copiedArray;
+	}
+
+	const smallerElementsArray = [];
+	const biggerElementsArray = [];
+	const pivotElement = copiedArray.shift();
+	// shift() returns the first element and mutates copiedArray, which is what we want
+	const centerElementsArray = [pivotElement];
+
+	while (copiedArray.length) {
+		const currentElement = copiedArray.shift();
+		// shift() returns the first element and mutates copiedArray, which is what we want
+
+		if (currentElement === pivotElement) {
+			centerElementsArray.push(currentElement);
+		} else if (currentElement < pivotElement) {
+			smallerElementsArray.push(currentElement);
+		} else {
+			biggerElementsArray.push(currentElement);
+		}
+	}
+
+	// we will need to repeat this process only twice (for the smaller and bigger elements arrays), since the centerElementsArray is already sorted:
+	const smallerElementsSortedArray = sort(smallerElementsArray);
+	const biggerElementsSortedArray = sort(biggerElementsArray);
+
+	return smallerElementsSortedArray.concat(
+		centerElementsArray,
+		biggerElementsSortedArray
+	);
+};
+
+const sortedArray = sort([-3, 10, -3, -15]);
+console.log(sortedArr);

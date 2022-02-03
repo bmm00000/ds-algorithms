@@ -1,21 +1,39 @@
 const sort = (arr) => {
-	const resultArray = [...arr];
-	// we do this because we don't want to mutate the original array. you could also do the following:
-	// const resultArray = arr.slice()
+	const copiedArray = [...arr];
 
-	for (let outer = 0; outer < resultArray.length; outer++) {
-		let outerEl = resultArray[outer];
-		for (let inner = outer + 1; inner < resultArray.length; inner++) {
-			let innerEl = resultArray[inner];
-			if (outerEl > innerEl) {
-				resultArray[outer] = innerEl;
-				resultArray[inner] = outerEl;
-				outerEl = resultArray[outer];
-				innerEl = resultArray[inner]; // we don't need to do this?
-			}
+	if (copiedArray.length <= 1) {
+		return copiedArray;
+	}
+
+	const smallerElementsArray = [];
+	const biggerElementsArray = [];
+	const pivotElement = copiedArray.shift();
+	// shift() returns the first element and mutates copiedArray, which is what we want
+	const centerElementsArray = [pivotElement];
+
+	while (copiedArray.length) {
+		const currentElement = copiedArray.shift();
+		// shift() returns the first element and mutates copiedArray, which is what we want
+
+		if (currentElement === pivotElement) {
+			centerElementsArray.push(currentElement);
+		} else if (currentElement < pivotElement) {
+			smallerElementsArray.push(currentElement);
+		} else {
+			biggerElementsArray.push(currentElement);
 		}
 	}
-	return resultArray;
+
+	// we will need to repeat this process only twice (for the smaller and bigger elements arrays), since the centerElementsArray only has elements with the same value, so it's already sorted:
+	const smallerElementsSortedArray = sort(smallerElementsArray);
+	const biggerElementsSortedArray = sort(biggerElementsArray);
+
+	return smallerElementsSortedArray.concat(
+		centerElementsArray,
+		biggerElementsSortedArray
+	);
 };
 
-const arr1 = [3, 5, 1, 0, -22, 100, -111];
+const sortedArray = sort([-3, 10, -3, -15]);
+// const sortedArray = sort([3, 2, 1]);
+console.log(sortedArray);
