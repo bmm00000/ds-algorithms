@@ -2,7 +2,7 @@ we are not going to solve the knapsack problem yet by writing a program, but we 
 
 remember, SHIFT + ENTER adds a new line in the console without executing the code.
 
-the ‘best possible solution’ dep ends on your circumstances, but generally speaking is the best performance, so it takes the least amount of time. therefore, how do we measure performance?
+the ‘best possible solution’ depends on your circumstances, but generally speaking is the best performance, so it takes the least amount of time. therefore, how do we measure performance?
 
 in JS there’s a ‘performance’ object in which we can call the ‘now’ method, which gives us the current time stamp
 
@@ -26,14 +26,14 @@ you could say: this algorithm has linear time complexity, or constant time compl
 
 using performance.now(), we can derive the time complexity easily for linear time complexity, because it's quite intuitive, but this doesn't happen for other time complexities (keep in mind that the time you get from performance.now() is also influenced by other factors, therefore you could think you have certain time complexity (for example, linear), but in reality there's a distorsion, so you have another time complexity).
 
-to derive time complexity in an accurate way, we use a technique called asymptotic analysis, which involve 3 steps: first, define the mathematical time comoplexity function (that correlates the inputs and the time), by counting the number of expression executions (you look at each expression in your algorithm, ie. roughly speaking, every line of code, and count how often it is getting executed); note that we are not measuring the specific time, since that's influenced by many factors. instead, we assume that each expression takes roughly the same amount of time. therefore, we can compare the number of expression executions of our algorithm with another algorithm (see screenshot).
+to derive time complexity in an accurate way, we use a technique called asymptotic analysis, which involves 3 steps: first, define the mathematical time complexity function (that correlates the inputs and the time), by counting the number of expression executions (you look at each expression in your algorithm, ie. roughly speaking, every line of code, and count how often it is getting executed); note that we are not measuring the specific time, since that's influenced by many factors. instead, we assume that each expression takes roughly the same amount of time. therefore, we can compare the number of expression executions of our algorithm with another algorithm (see screenshot).
 (note that the initialization of the for loop is executed only once, in our example)
 at the end of the screenshot, we express the time complexity with 'T', and we can use this expression to compare this algorithm to other algorithms.
 but we don't need to be that exact: for example, if we added a console.log in our function, we would still count it, but it doesn't really matter, we care about the general function, the kind of function, to be precise. therefore, you can generalize the 'T' expression with coeficients (in our example, 'a' and 'b'), because specific numbers don't matter, what matters is the big picture. in step 3, we remove the coeficient because what we care is the general picture.
 
 (when we find the fastest growing term for constant time complexity, 1 is not growing, but it's the only term we have, and there's no coeficient to remove)
 
-we remove the coeficient because we just care about the general trend. that's why, if we added a console.log line in the constant time complexity function, we woulnd't say 2, we say just 1, because we remove the coeficient.(for the same reason, we focus on the fastest growing term, because we focus on the general trend): we don't care about the number of code executions, we just want to see the general trend.
+we remove the coeficient because we just care about the general trend. that's why, if we added a console.log line in the constant time complexity function, we woulnd't say 2, we say just 1, because we remove the coeficient (for the same reason, we focus on the fastest growing term, because we focus on the general trend): we don't care about the number of code executions, we just want to see the general trend.
 
 constant time complexity is the best possible case for an algorithm. in our example we have this mathematical formula that gives us constant time complexity, so we have a better alternative to the algorithm with linear time complexity, but this is not always possible.
 
