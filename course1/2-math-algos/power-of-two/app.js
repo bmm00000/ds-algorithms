@@ -43,6 +43,20 @@ const isPowerOfTwo = (number) => {
 	}
 
 	return true;
+
+	// the same solution with a 'for' loop:
+
+	// if (number < 1) {
+	// 	return false;
+	// }
+
+	// for (let coef = number; coef !== 1; coef /= 2) {
+	// 	if (coef % 2 !== 0) {
+	// 		return false;
+	// 	}
+	// }
+
+	// return true;
 };
 
 console.log(8);
