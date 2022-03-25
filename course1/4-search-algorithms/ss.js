@@ -26,13 +26,16 @@
 const binarySearchLoop = (sortedArr, element) => {
 	let midIndex = Math.floor(sortedArr.length / 2);
 	let counter = 0;
+	let newArrLength = sortedArr.length;
 
 	while (element !== sortedArr[midIndex]) {
 		if (element < sortedArr[midIndex]) {
 			const newArr = sortedArr.slice(0, midIndex);
+			newArrLength = newArr.length;
 			midIndex = Math.floor(newArr.length / 2);
 		} else {
-			const newArr = sortedArr.slice(midIndex);
+			const newArr = sortedArr.slice(midIndex, newArrLength + counter);
+			newArrLength = newArr.length;
 			counter += midIndex;
 			midIndex = counter + Math.floor(newArr.length / 2);
 		}
@@ -41,6 +44,7 @@ const binarySearchLoop = (sortedArr, element) => {
 	return midIndex;
 
 	// ONLY THE CASE WHERE WE ARE LOOKING FOR 60 DOESN'T WORK!!!
+	// sill have an infinite loop when looking for 60.
 };
 
 // console.log(binarySearchRecursive([1, 4, 6, 30, 44, 60], 60));
