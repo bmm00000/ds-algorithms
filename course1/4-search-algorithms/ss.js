@@ -1,27 +1,3 @@
-// let counter = 0;
-
-// const binarySearchRecursive = (sortedArr, element) => {
-// 	const midIndex = Math.floor(sortedArr.length / 2);
-
-// 	if (element === sortedArr[midIndex]) {
-// 		const index = midIndex + counter;
-// 		counter = 0;
-// 		return index;
-// 	}
-
-// 	let newArr;
-// 	if (element < sortedArr[midIndex]) {
-// 		newArr = sortedArr.slice(0, midIndex);
-// 	} else {
-// 		newArr = sortedArr.slice(midIndex);
-// 		counter += midIndex;
-// 	}
-
-// 	return binarySearchRecursive(newArr, element);
-// };
-
-//
-
 // function findElement(sortedArr, element) {
 // 	let startIndex = 0;
 // 	let endIndex = sortedArr.length - 1;
@@ -103,20 +79,42 @@
 // 	}
 // }
 
+// let counter = 0;
+// function binRec(sortedArr, element) {
+// 	const midIndex = Math.floor(sortedArr.length / 2);
+
+// 	if (element === sortedArr[midIndex]) {
+// 		return counter + midIndex;
+// 	}
+
+// 	if (element < sortedArr[midIndex]) {
+// 		const newArr = sortedArr.slice(0, midIndex);
+// 		return binRec(newArr, element);
+// 	} else {
+// 		const newArr = sortedArr.slice(midIndex + 1);
+// 		counter = sortedArr.length - newArr.length;
+// 		return binRec(newArr, element);
+// 	}
+// }
+
 let counter = 0;
-function binRec(sortedArr, element) {
+function binarySearchRec(sortedArr, element) {
 	const midIndex = Math.floor(sortedArr.length / 2);
 
 	if (element === sortedArr[midIndex]) {
-		return counter + midIndex;
+		const finalIndex = counter + midIndex;
+		counter = 0;
+		return finalIndex;
 	}
 
 	if (element < sortedArr[midIndex]) {
 		const newArr = sortedArr.slice(0, midIndex);
-		return binRec(newArr, element);
-	} else {
+		return binarySearchRec(newArr, element);
+	}
+
+	if (element > sortedArr[midIndex]) {
 		const newArr = sortedArr.slice(midIndex + 1);
-		counter = sortedArr.length - newArr.length;
-		return binRec(newArr, element);
+		counter += midIndex + 1;
+		return binarySearchRec(newArr, element);
 	}
 }
