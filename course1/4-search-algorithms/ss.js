@@ -163,3 +163,42 @@ function binarySearchRec2(sortedArr, element, offset) {
 
 // solved!!!
 console.log(binarySearchRec2([1, 2, 3, 4, 5], 5, 0));
+
+function binLoop(sortedArr, element) {
+	let startIndex = 0;
+	let endIndex = sortedArr.length - 1;
+
+	while (startIndex <= endIndex) {
+		const midIndex = startIndex + Math.floor((endIndex - startIndex) / 2);
+
+		if (sortedArr[midIndex] === element) {
+			return midIndex;
+		}
+
+		if (sortedArr[midIndex] > element) {
+			endIndex = midIndex - 1;
+		} else {
+			startIndex = midIndex + 1;
+		}
+	}
+}
+
+function binRec(sortedArr, element, offset = 0) {
+	let startIndex = 0;
+	let endIndex = sortedArr.length - 1;
+	const midIndex = Math.floor((endIndex - startIndex) / 2);
+
+	if (sortedArr[midIndex] === element) {
+		return offset + midIndex;
+	}
+
+	if (sortedArr[midIndex] > element) {
+		endIndex = midIndex - 1;
+	} else {
+		startIndex = midIndex + 1;
+		offset += midIndex + 1;
+	}
+
+	const newArr = sortedArr.slice(startIndex, endIndex + 1);
+	return binRec(newArr, element, offset);
+}
