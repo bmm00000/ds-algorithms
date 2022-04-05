@@ -1,6 +1,6 @@
 search algorithms are programs that help us to find things in arrays.
 
-we are going to focus on the Linear Search algorithm, and the Binary Search algorithm (also we will take a look at a concept called "Master Theorem", which allows us to judge the performance of a recursive algorithm if we can't just count execution steps)
+we are going to focus on the Linear Search algorithm, and the Binary Search algorithm (also we will take a look at a concept called "Master Theorem", which allows us to judge the performance of a recursive algorithm if we can't just count execution steps. (the Master Theorem ONLY works FOR RECURSIVE ALGOS WHERE YOU SPLIT YOUR PROBLEM INTO SMALLER CHUNKS; this formula will not work for other recusive approaches (for example when you call yourself n - 1, as it happenned with the vectorial case))).
 
 you can use different algorithms for different kinds of lists, and these different algorithms will have different time complexities. we are going to have a look at these two types of algorithms
 

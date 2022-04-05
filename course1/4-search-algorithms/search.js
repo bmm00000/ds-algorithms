@@ -180,6 +180,27 @@ const findElement = (sortedArr, element, offset) => {
 const arr = [1, 3, 5, 6, 77, 888];
 console.log(findElement(arr, 77, 0));
 
+// my solution, even better than the course's:
+function binSearchRecursive(sortedArr, element, offset = 0) {
+	let startIndex = 0;
+	let endIndex = sortedArr.length - 1;
+	const midIndex = Math.floor((endIndex - startIndex) / 2);
+
+	if (sortedArr[midIndex] === element) {
+		return offset + midIndex;
+	}
+
+	if (sortedArr[midIndex] > element) {
+		endIndex = midIndex - 1;
+	} else {
+		startIndex = midIndex + 1;
+		offset += midIndex + 1;
+	}
+
+	const newArr = sortedArr.slice(startIndex, endIndex + 1);
+	return binRec(newArr, element, offset);
+}
+
 // since we hare halving the array before we call the function again, we also have Logarithmic Time Complexity (we are also calling 'slice', which also costs some performance. however, we will not consider the cost of 'slice', since it would only make a difference compared to the loop solution if we measured performance for very large arrays. the general nature of this algo is not impacted by 'slice')
 // this example is quite clear of splitting the problem into half, but if you wanted to derive the time complexity in less clear situations, we have a theorem (a formula) for such recursive calls (ONLY FOR RECURSIVE ALGOS WHERE YOU SPLIT YOUR PROBLEM INTO SMALLER CHUNKS; this formula will not work for other recusive approaches (for example when you call yourself n - 1, as it happenned with the vectorial case)). if you split your n into halves or into thirds, etc. then it would work. In our example above: in order to find out about the runtime of recursion (the recursive step), we only take into account one line (where we call findElement)
 // a = 1 (how often we call ourselves, in our example, once)
