@@ -16,7 +16,7 @@ console.log(fact(3));
 const fact = (number) => {
 	if (number <= 1) {
 		// 1
-		return 1; // 1 at most
+		return 1; // 1
 	}
 	return number * fact(number - 1); // 1, but we also have to count the function called here (n - 1).
 };
@@ -31,3 +31,27 @@ const fact = (number) => {
 // this is the same time complexity as we got for the loop solution, so our recursive solution is not faster but it takes less code, and that could be a decision factor as well.
 
 // however, sometimes we would have a hard time counting function calls in recursive algorithms. we will find a better way to determine time complexity. however, for a lot of algorithms, the former approach will work just fine.
+
+// my initial iterative solution:
+const factIterative = (n) => {
+	let result = 1;
+	for (let i = 1; i <= n; i++) {
+		result *= i;
+	}
+	return result;
+};
+// O(n)
+
+// my initial recursive solution:
+const factRecursive = (n) => {
+	if (n < 1) {
+		return;
+	}
+
+	if (n === 1) {
+		return 1;
+	}
+
+	return n * factRecursive(n - 1);
+};
+// O(n)
