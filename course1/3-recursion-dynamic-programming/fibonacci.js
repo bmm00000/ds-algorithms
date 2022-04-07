@@ -86,7 +86,7 @@ function fib(n) {}
 fib(4);
 fib(5);
 
-// the problem with this approach is that we have one object, and if we call 'fib' multiple times, then we will be reusing this object. this would be great if what we want in subsequent calls is to take advange of the values that we already have in 'memo' from former calls. however, if you have a function, where the input produces totally different values for 'memo', then you would get incorrect values in your next function executions.
+// the problem with this approach is that we have one object, and if we call 'fib' multiple times, then we will be reusing this object. this would be great if what we want in subsequent calls is to take advange of the values that we already have in 'memo' from former calls. however, if you have a function, where the input produces totally different values for 'memo', then you would get incorrect values in your next function executions, ie. it's not reusable.
 
 // in order to make our approach reusable, we will pass a second argument ('memo'), so we have a different storage object every time we call the function. for example, fib(4) and fib(5) will use different storages. this storage object is passed as an argument every time we call the function, ie, is passed into into every recursive process (every fibonacci number we are trying to retreive) and is only used for this recursive tree:
 
@@ -128,6 +128,7 @@ counter = 0;
 // see screenshot, and you can also try more examples in the console: if you double the input, you more or less double the counter (and the relationship between the input and the counter is more or less 2n). therefore, we have O(n) now, WHICH IS A HUGE IMPROVEMENT from what we had before (exponential time complexity)
 
 // if we want to see how the storage object looks like (see screenshot):
+let counter = 0;
 const memo = {};
 fib(5, memo);
 console.log(counter);
