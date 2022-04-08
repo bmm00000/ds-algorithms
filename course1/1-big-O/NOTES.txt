@@ -10,7 +10,7 @@ to copy again the same in the console, you can use the up arrow key.
 
 you try the same function with different arguments, and see how time changes.
 
-when you use hard numbers (different numbers as inputs), a lot of factors (that have nothing to do with the algorithm) influence the amount of time it takes (new or old computer, how many processors running in the background, or in the browser, etc. also the browser does some optimizations behind the scene (it caches the function, values, etc.)), so the output may vary, even using the same inputs. therefore, measuring time like this is not a great idea, specially for low values. but still, if you use bigger and bigger numbers, you will start to see a trend (see screenshot)
+when you use hard numbers (different numbers as inputs), a lot of factors (that have nothing to do with the algorithm) influence the amount of time it takes (new or old computer, how many processors running in the background, or in the browser, etc. also the browser does some optimizations behind the scenes (it caches the function, values, etc.)), so the output may vary, even using the same inputs. therefore, measuring time like this is not a great idea, specially for low values. but still, if you use bigger and bigger numbers, you will start to see a trend (see screenshot)
 
 therefore, we shouldn’t care much about the specific numbers (since these depend a lot on the environment, especially the low numbers), but we should care about the general trend (especially for the large numbers)
 
