@@ -90,3 +90,18 @@ function isPowerOfTwo(number) {
 }
 // O(1). This algorithm is a better alternative than the other one.
 // you can google for this type of better solutions if you are optimizing a project. there are often creative solutions based on mathematical tricks, etc.
+
+// MY FOR LOOP SOLUTION!!!!
+function power2(n) {
+	if (n < 1) {
+		return false;
+	}
+
+	for (let divided = n; divided !== 1; divided /= 2) {
+		if (divided % 2 !== 0) {
+			return false;
+		}
+	}
+
+	return true;
+}
