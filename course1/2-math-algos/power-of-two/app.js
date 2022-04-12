@@ -79,7 +79,7 @@ console.log(5);
 // The bitwise AND operator ( & ) compares each bit of the first operand to the corresponding bit of the second operand. If both bits are 1, the corresponding result bit is set to 1. Otherwise, the corresponding result bit is set to 0 (see screenshots).
 // you use this operator in decimals, for example, if you put this in the console: 4 & 7, then both numbers get converted to binary under the hood, get compared, and you will get the result of converting the binary number to a decimal number, in our example: 4 (see screenshots)
 
-// there's is this regularity (mathematical trick) that we have in the slide, so we can do the following:
+// there's this regularity (mathematical trick) that we have in the slide, so we can do the following:
 
 function isPowerOfTwo(number) {
 	if (number < 1) {
@@ -90,18 +90,3 @@ function isPowerOfTwo(number) {
 }
 // O(1). This algorithm is a better alternative than the other one.
 // you can google for this type of better solutions if you are optimizing a project. there are often creative solutions based on mathematical tricks, etc.
-
-// MY FOR LOOP SOLUTION!!!!
-function power2(n) {
-	if (n < 1) {
-		return false;
-	}
-
-	for (let divided = n; divided !== 1; divided /= 2) {
-		if (divided % 2 !== 0) {
-			return false;
-		}
-	}
-
-	return true;
-}
