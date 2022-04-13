@@ -10,9 +10,8 @@ const findElement = (arr, element) => {
 	// you would not need to keep account of the 'index' counter if you used a traditional 'for' or 'while' loop, or the 'forEach' built-in function.
 };
 
-const arr = [4, 66, -22, 200, 21];
-
-console.log(findElement(arr, 200));
+// const arr = [4, 66, -22, 200, 21];
+// console.log(findElement(arr, 200));
 
 // our algo will work for arrays of numbers and strings, but keep in mind that, if you had an array of objects, the comparison with an equal operator would not work, but we will get back into that later.
 
@@ -23,7 +22,7 @@ const students = [
 	{ name: josh, age: 22 },
 ];
 
-console.log(findElement(students, { name: jose, age: 33 })); // returns undefined, because the object in line 26 is a different object (in a different place in memory) than the one in line 22.
+console.log(findElement(students, { name: jose, age: 33 })); // returns undefined, because the object in line 25 is a different object (in a different place in memory) than the one in line 21.
 
 // how can we fix this?
 const studentOne = { name: jose, age: 33 };
