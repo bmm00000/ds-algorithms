@@ -18,11 +18,11 @@ const findElement = (arr, element) => {
 // if we had an array of strings, this approach would work, since strings are primitive values (as numbers), but it would not work for an array of objects. this happens because objects are reference values in js. for example:
 
 const students = [
-	{ name: jose, age: 33 },
-	{ name: josh, age: 22 },
+	{ name: 'jose', age: 33 },
+	{ name: 'josh', age: 22 },
 ];
 
-console.log(findElement(students, { name: jose, age: 33 })); // returns undefined, because the object in line 25 is a different object (in a different place in memory) than the one in line 21.
+console.log(findElement(students, { name: 'jose', age: 33 })); // returns undefined, because the object in line 25 is a different object (in a different place in memory) than the one in line 21.
 
 // how can we fix this?
 const studentOne = { name: jose, age: 33 };
@@ -42,7 +42,7 @@ const findElement = (arr, element) => {
 			element.age === item.age
 		) {
 			return index;
-			// now we have a very specific comparison (it would also work if we wantd to compare it just by name, or just by age)
+			// now we have a very specific comparison (it would also work if we wanted to compare it just by name, or just by age)
 		}
 		if (item === element) {
 			return index;
@@ -54,7 +54,7 @@ const findElement = (arr, element) => {
 
 console.log(findElement(students, { name: jose, age: 33 }));
 
-// the example above only works with objects that have name and age keys. this might be what you need or not. you could make it more flexible as follows (so your findElement function does not have to know in advance what type of object you will have):
+// the example above only works with objects that have name and age keys (and no more key-value properties!). this might be what you need or not. you could make it more flexible as follows (so your findElement function does not have to know in advance what type of object you will have):
 
 const findElement = (arr, element, comparatorFn) => {
 	let index = 0;
@@ -79,6 +79,31 @@ const compareObj = (el, itm) => {
 };
 
 console.log(findElement(students, { name: jose, age: 33 }, compareObj));
+// BUT AGAIN! the example above only works with objects that have name and age keys (and no more key-value properties! (example of vulnerability: if the element that you pass as an argument has name, age, AND nationality as keys, it will still return the index). that's why my solution is clunkier but better:
+function linearSearch(arr, element) {
+	if (typeof element === 'object') {
+		for (let i = 0; i < arr.length; i++) {
+			let count = 0;
+			for (let key in element) {
+				if (arr[i][key] === element[key]) {
+					count++;
+				}
+			}
+			const found =
+				count === Object.keys(element).length &&
+				count === Object.keys(arr[i]).length;
+			if (found) {
+				return i;
+			}
+		}
+	}
+
+	for (let i = 0; i < arr.length; i++) {
+		if (arr[i] === element) {
+			return i;
+		}
+	}
+}
 
 // the key takeaway from this algo is that you simply have a loop, and you take a look at every item. the way you compare each item with the element that you have as an input, is something that you can implement in a dynamic way (with the comparatorFn), or, if you know that you are only dealing with primitive values, with a simple comparison (item === element)
 

@@ -22,39 +22,50 @@ const findElement = (sortedArr, element, offset) => {
 	);
 };
 
-const arr = [1, 3, 5, 6, 77, 888];
+// const arr = [1, 3, 5, 6, 77, 888];
 
 //
 //
 //
 
-function linearSearch(arr, element) {
-	if (typeof element === 'object') {
-		for (let i = 0; i < arr.length; i++) {
-			let count = 0;
-			for (let key in element) {
-				if (arr[i][key] === element[key]) {
-					count++;
-				}
-			}
-			return count === Object.keys(element).length ? i : null;
-			// why this refactor doesn't work??
+function binarySearch(arr, element) {
+	let startIndex = 0;
+	let endIndex = arr.length - 1;
+
+	while (startIndex <= endIndex) {
+		const midIndex = startIndex + Math.floor((endIndex - startIndex) / 2);
+
+		if (arr[midIndex] === element) {
+			return midIndex;
 		}
-	}
 
-	for (let i = 0; i < arr.length; i++) {
-		if (arr[i] === element) {
-			return i;
+		if (arr[midIndex] > element) {
+			endIndex = midIndex - 1;
+		} else {
+			startIndex = midIndex + 1;
 		}
 	}
 }
 
-const arr1 = [
-	{ key1: 1, key2: 2 },
-	{ key1: 3, key2: 4 },
-	{ key1: 5, key2: 6 },
-];
-const arr2 = [{ key1: 1, key2: 2 }, { key1: 3, key2: 4 }, 33];
+function binarySearchRec(arr, element, counter = 0) {
+	const startIndex = 0;
+	const endIndex = arr.length - 1;
+	const midIndex = Math.floor((endIndex - startIndex) / 2);
 
-const elem1 = { key1: 5, key2: 6 };
-const elem2 = 33;
+	if (arr[midIndex] === element) {
+		return counter + midIndex;
+	}
+
+	if (arr[midIndex] > element) {
+		const subArr = arr.slice(startIndex, midIndex);
+		return binarySearchRec(subArr, element, counter);
+	}
+
+	if (arr[midIndex] < element) {
+		const subArr = arr.slice(midIndex + 1);
+		counter += midIndex + 1;
+		return binarySearchRec(subArr, element, counter);
+	}
+}
+
+const arr1 = [1, 3, 6, 7, 8];
