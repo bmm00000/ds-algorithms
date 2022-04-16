@@ -204,7 +204,7 @@ const findElement = (sortedArr, element, offset) => {
 const arr = [1, 3, 5, 6, 77, 888];
 console.log(findElement(arr, 77, 0));
 
-// my solution, even better than the course's:
+// my solution, even better than the course's (this is the question I asked in the forum that nobody replied! in the course's solution above, we are not splitting the array in the most efficient way):
 function binSearchRecursive(sortedArr, element, offset = 0) {
 	let startIndex = 0;
 	let endIndex = sortedArr.length - 1;
@@ -225,8 +225,8 @@ function binSearchRecursive(sortedArr, element, offset = 0) {
 	return binRec(newArr, element, offset);
 }
 
-// since we hare halving the array before we call the function again, we also have Logarithmic Time Complexity (we are also calling 'slice', which also costs some performance. however, we will not consider the cost of 'slice', since it would only make a difference compared to the loop solution if we measured performance for very large arrays. the general nature of this algo is not impacted by 'slice')
-// this example is quite clear of splitting the problem into half, but if you wanted to derive the time complexity in less clear situations, we have a theorem (a formula) for such recursive calls (ONLY FOR RECURSIVE ALGOS WHERE YOU SPLIT YOUR PROBLEM INTO SMALLER CHUNKS; this formula will not work for other recusive approaches (for example when you call yourself n - 1, as it happenned with the vectorial case)). if you split your n into halves or into thirds, etc. then it would work. In our example above: in order to find out about the runtime of recursion (the recursive step), we only take into account one line (where we call findElement)
+// since we are halving the array before we call the function again, we also have Logarithmic Time Complexity (we are also calling 'slice', which also costs some performance. however, we will not consider the cost of 'slice', since it would only make a difference compared to the loop solution if we measured performance for very large arrays. the general nature of this algo is not impacted by 'slice')
+// this example is quite clear of splitting the problem into half, but if you wanted to derive the time complexity in less clear situations, we have a theorem (a formula) for such recursive calls (ONLY FOR RECURSIVE ALGOS WHERE YOU SPLIT YOUR PROBLEM INTO SMALLER CHUNKS; this formula will not work for other recusive approaches (for example when you call yourself n - 1, as it happenned with the factorial algo)). if you split your n into halves or into thirds, etc. then it would work. In our example above: in order to find out about the runtime of recursion (the recursive step), we only take into account one line (where we call findElement)
 // a = 1 (how often we call ourselves, in our example, once)
 // b = 2 (we are splitting the problem in half)
 // O(n^logb a) => O(n^log2 1) => O(n^0) => O(1). therefore, the recursive step (line 173 alone) has a Constant Runtime. now the question is: does this recusive step do more work, equal work or less work than the rest of this function? since we don't have any other function calls, loops, etc., the rest of the function (from line 158 to line 171) is also O(1) (it doesn't depend on the the length of the array). hence, the time complexity of the recursive step is the same as the part of the function outside of the recursive step (same work inside and outside of recursion). therefore, the overall algorithm time complexity: O(n^logb a * log n) => O(1 * log n) => O(log n)
