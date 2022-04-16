@@ -34,6 +34,34 @@ const sort = (arr) => {
 	);
 };
 
-const sortedArray = sort([-3, 10, -3, -15]);
-// const sortedArray = sort([3, 2, 1]);
-console.log(sortedArray);
+// const sortedArray = sort([-3, 10, -3, -15]);
+// // const sortedArray = sort([3, 2, 1]);
+// console.log(sortedArray);
+
+//
+//
+
+// MY iterative SOLUTION:
+function bubbleSort(arr) {
+	for (let i = 0; i < arr.length; i++) {
+		for (let j = i + 1; j < arr.length; j++) {
+			if (arr[j] < arr[i]) {
+				const max = arr[i];
+				const min = arr[j];
+				arr[i] = min;
+				arr[j] = max;
+			}
+		}
+	}
+	return arr;
+}
+
+// bubbleSort([2, 4, 6, 2, 1, 0]);
+
+function bubbleSortRec(arr, offset = 1) {
+	let firstIndex = 0
+	let lastIndex = 
+	const subArr = [arr[i], arr[i + offset]];
+	offset++;
+	return bubbleSortRec(subArr, offset);
+}
