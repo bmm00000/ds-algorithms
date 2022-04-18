@@ -50,6 +50,22 @@ console.log(sortedArray);
 
 // if you want to make it descending, you only have to change if (outerEl < innerEl)
 
+// MY iterative SOLUTION improving the course's:
+// (we don't need to avoid mutating the array we get as an argument; the outer loop doesn't have to go until the end, but arr.length - 1; you only need to inintialize variables after comparison):
+function bubbleSort(arr) {
+	for (let i = 0; i < arr.length - 1; i++) {
+		for (let j = i + 1; j < arr.length; j++) {
+			if (arr[j] < arr[i]) {
+				const max = arr[i];
+				const min = arr[j];
+				arr[i] = min;
+				arr[j] = max;
+			}
+		}
+	}
+	return arr; // 1
+}
+
 // TIME COMPLEXITY OF BUBBLE SORT:
 // best case (numbers are already sorted): even though we have a nested loop, we do practically nothing in the inner loop (since we never get into the if statement), therefore O(n)
 // worst case (numbers are in reverse order): O(n^2) (Quadratic Time Complexity)
