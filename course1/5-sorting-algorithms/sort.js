@@ -93,7 +93,9 @@ const sort = (arr) => {
 	// shift() returns the first element and mutates copiedArray, which is what we want
 	const centerElementsArray = [pivotElement];
 
+	// we use a while loop because we are going to be mutating the array that we are going to be iterating through:
 	while (copiedArray.length) {
+		// same as: while (copiedArr.length >= 1)
 		const currentElement = copiedArray.shift();
 		// shift() returns the first element and mutates copiedArray, which is what we want
 

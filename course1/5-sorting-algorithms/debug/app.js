@@ -75,3 +75,38 @@ function quickSort(arr) {
 }
 
 const arr1 = [2, 1, 2];
+
+//
+//
+//
+
+function quickSort1(arr) {
+	const copiedArr = [...arr];
+
+	if (copiedArr.length <= 1) {
+		return copiedArr;
+	}
+
+	const larger = [];
+	const smaller = [];
+	const pivot = copiedArr.shift();
+	const equal = [pivot];
+
+	while (copiedArr.length >= 1) {
+		const element = copiedArr.shift();
+
+		if (element === pivot) {
+			equal.push(element);
+		}
+
+		if (element < pivot) {
+			smaller.push(element);
+		}
+
+		if (element > pivot) {
+			larger.push(element);
+		}
+	}
+
+	return [...quickSort1(smaller), ...equal, ...quickSort1(larger)];
+}
