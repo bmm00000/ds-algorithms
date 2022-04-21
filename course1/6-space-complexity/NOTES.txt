@@ -1,0 +1,11 @@
+time complexity is by far the most important measure to compare algos. nontheless, we also have space complexity to compare algos, and we may use it sometimes: how much space occupation grows as the inputs grow.
+
+all values in js are stored in memory, but your values are also frequently released from memory if they are not used anymore in your code. all that memory usage is managed authomatically by your js engine (eg. in the browser)
+
+especially arrays and objects take a bit more space, that's why we are going to focus on those.
+
+generally speaking, js engines in browsers are relatively efficient to manage the memory, so you won't need to worry about space complexity too much in js. that's why space complexity is not the priority to analyze performance in js development. of course, you don't want to introduce memory leaks, but that's a bug, it has nothing to do with space complexity. space complexity is just about the memory usage we have in an algo without having a bug.
+
+by stored 'permanently', we don't mean that the values are going to be stored forever, we just mean that, eg. if you have a loop or a recursive function, the value survives that iteration or recursive step. of course, the value will be cleared up after the algo is done, but we are just talking about data management inside of the algo.
+
+for example, if we have an algo with a loop that creates a new object with every iteration, and we loop through all numbers up to 'n', and we keep the created objects around after every iteration, then we would have linear space complexity: O(n)
