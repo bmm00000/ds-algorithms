@@ -1,0 +1,3 @@
+in programming, most arrays are sets, since you rarely have just arrays of disconnected values that don't make sense to put together in a data structure.
+
+in the example of shirt manufacturing, this problem (produce a new set with all the variants that should be manufactured) would be an example of a set algo, because it operates on sets (in this particular example, the algo that solves this problem would be the Cartesian Product algo: combine every element of one array with every element of the other array)

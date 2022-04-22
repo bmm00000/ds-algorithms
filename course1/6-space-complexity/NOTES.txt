@@ -2,10 +2,27 @@ time complexity is by far the most important measure to compare algos. nontheles
 
 all values in js are stored in memory, but your values are also frequently released from memory if they are not used anymore in your code. all that memory usage is managed authomatically by your js engine (eg. in the browser)
 
-especially arrays and objects take a bit more space, that's why we are going to focus on those.
+especially arrays and objects take a bit more space, that's why we are going to focus on these.
 
 generally speaking, js engines in browsers are relatively efficient to manage the memory, so you won't need to worry about space complexity too much in js. that's why space complexity is not the priority to analyze performance in js development. of course, you don't want to introduce memory leaks, but that's a bug, it has nothing to do with space complexity. space complexity is just about the memory usage we have in an algo without having a bug.
 
 by stored 'permanently', we don't mean that the values are going to be stored forever, we just mean that, eg. if you have a loop or a recursive function, the value survives that iteration or recursive step. of course, the value will be cleared up after the algo is done, but we are just talking about data management inside of the algo.
 
 for example, if we have an algo with a loop that creates a new object with every iteration, and we loop through all numbers up to 'n', and we keep the created objects around after every iteration, then we would have linear space complexity: O(n)
+
+when we talk about values being stored, we don't just talk about objects or arrays, but also about strings, numbers, etc.
+
+in the factorial example, the 'result' value is getting stored in memory, but also the number parameter we get acts as a variable that we can use inside of the function, and therefore it's getting stored in memory as well. therefore, before the loop, we have two values stored in memory. when we get into the loop, with every iteration, we store a new 'i', and a new boolean, but after every iteration, those two are cleaned up, and new ones are created in the next iteration (therefore, that's not permanent data, because it doesn't stick around with every iteration). therefore, the space complexity is O(1) (space in memory occupied does not depend on 'n'). if we measured it in bites, there might be small differences because of bigger numbers or similar, but the general trend is constant.
+
+for the recursive solution of the factorial algo, the boolean (exit condition) is cleaned up with every recursive step. but when you call yourself again, a new function is pushed into the top of the execution stack (the first function call waits for the result of the second function call; only one function call is running, the other one is waiting). therefore, the arguments that the subsequent function calls receive will be stored in memory. therefore, space complexity is O(n).
+
+NOTE THAT, we have the same time complexity for the two factorial algos, but different space complexities, so if we have to decide, we would probably lean towards the loop based solution.
+
+linear search algo: if you receive a longer array as an argument, you could say that it would take a bit more space in memory, but that's just browser/js internals: the space occupied in memory doesn't necessarily grow linearly with bigger arrays, and even if that's the case, that wouldn't be exclusive to our algo, so we don't care about the length of the array, we just care about our algo: how many extra values are we creating in memory in that algo.
+
+quick sort algo: we are creating arrays. also, we are creating values that survive the loop iterations (the values being pushed into the smaller, equal, and larger arrays). therefore, the smaller/equal/larger arrays grow with every iteration. but you could argue that, since you are using 'shift', you are just moving an element to one array to the other, so one array is increasing length, but the other one is decreasing length, so the memory consumption doesn't really change. therefore, up until this point, we could argue that we are still O(1). but then we call ourselves recursively twice, therefore we end up having O(n). even though we are calling ourselves twice, in js, the execution to the second recursive call will not start until all the recursive executions of the first recursive call are done. therefore, we will never have more than 'n' extra values being created in space. 
+NOTE THAT O(log n) is also possible: 
+https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/sorting/quick-sort/QuickSortInPlace.js
+(This improved version does the sorting "in place", i.e. without creating extra helper arrays. The space complexity for the in-place approach is O(log n)).
+
+WE SEE A PATTERN: RECURSION TYPICALLY GIVES US LINEAR SPACE COMPLEXITY (NOT CONSTANT SPACE COMPLEXITY)
