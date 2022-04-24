@@ -26,3 +26,9 @@ https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/sor
 (This improved version does the sorting "in place", i.e. without creating extra helper arrays. The space complexity for the in-place approach is O(log n)).
 
 WE SEE A PATTERN: RECURSION TYPICALLY GIVES US LINEAR SPACE COMPLEXITY (NOT CONSTANT SPACE COMPLEXITY)
+
+merge sort algo: when we call ourselves recursively, we are creating a bunch of new arrays in memory, and the number of arrays and the values stored in these arrays (ie. the size and memory occupied by those values in those arrays), depends on 'n': the longer the array we pass as an argument, the more splits we will have and the more arrays with new values will get created. the while loop doesn't make a difference, but because of the recursion, our resulting space complexity is O(n).
+
+therefore, as a whole, very often we will have either constant or linear space complexity. we will typically have linear space compleixty if we call ourselves recursively. theoretically, you can have other space complexities, like quadratic, etc. maybe if you have recursive calls inside of a loop, but that's not that often the case.
+
+in a nutshell, space complexity is not the most important dimension to take into account in performance considerations, but it's an additional dimension to take into account.

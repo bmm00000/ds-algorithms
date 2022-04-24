@@ -189,3 +189,51 @@ function quickSortCourse(arr) {
 
 // MERGE SORT ALGO:
 // after we split the array into arrays of two elements, we have two steps: sort the arrays of two elements, and then sort them again when we merge them. therefore, in this algo, we split things up, then we sort them, and then we sort them again when we merge things together.
+
+function mergeSort(arr) {
+	if (arr.length < 2) {
+		return arr;
+	}
+
+	if (arr.length === 2) {
+		return arr[0] > arr[1] ? [arr[1], arr[0]] : arr;
+	}
+
+	const middle = Math.floor(arr.length / 2);
+	const leftArr = arr.slice(0, middle);
+	const rightArr = arr.slice(middle);
+
+	const leftSortedArr = mergeSort(leftArr);
+	const rightSortedArr = mergeSort(rightArr);
+
+	const mergedArr = [];
+	let leftArrIndex = 0;
+	let rightArrIndex = 0;
+
+	// we are using a while loop because we want to change both arrays at the same time in one loop. if we wanted to change just one array, we could have used a for loop.
+	while (
+		leftArrIndex < leftSortedArr.length ||
+		rightArrIndex < rightSortedArr.length
+	) {
+		if (
+			// keep in mind that if we have split arrays of unequal amount of items, the left array will be the shorter one. therefore, the left array will be the one that will be exhausted first, in which case we know that we have push the remaining rightSortedArr item in the mergedArr:
+			leftArrIndex >= leftSortedArr.length ||
+			leftSortedArr[leftArrIndex] > rightSortedArr[rightArrIndex]
+		) {
+			mergedArr.push(rightSortedArr[rightArrIndex]);
+			rightArrIndex++;
+		} else {
+			mergedArr.push(leftSortedArr[leftArrIndex]);
+			leftArrIndex++;
+		}
+	}
+
+	return mergedArr;
+}
+
+// time complexity: apply master theorem:
+// recursive step time complexity: O(n^logb(a)) => O(n^log2(2)) => O(n^1) => O(n)
+// outside of recursion time complexity: before the loop, we have constant time complexity. then, with the loop, we have O(n).
+// therefore, we have the same work inside and outside of the recursion. therefore, merge sort algo time complexity: O(n^logb(a) * log(n)) => O(n * log(n))
+
+// therefore, in terms of performance, the merge sort beats the other sort algos we have seen. although it's worth pointing out that the merge sort algo also contains a lot much code (and it's more complex to write). therefore, for shorter arrays, if we measure exeuction time in milliseconds (as oppposed to how we are measuring it, ie. only theoretically), merge sort might take longer (maybe the bubble sort algo might be better in shorter arrays). therefore, the merge sort algo might not be the best tool for every sorting task that you have (it might be overkill: the theoretical performance advantage in terms of time complexity might not be the factor that would matter the most). also, merge sort would take a bit more of memory than, say bubble sort, since we are creating intermediate temporary arrays (see space complexity notes).
