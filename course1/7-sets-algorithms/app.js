@@ -53,3 +53,16 @@ console.log(cartesian(colors, sizes, styles));
 
 // time complexity of cartesian product algo without limits: we will need the generalization approach we mentioned before, since now we have an unlimited amount of sets => O(n*m*q*...). therefore, we will assume that the length of the longest array is the length of all arrays. if we knew the number of sets in advance (for example, 3), then O(n^3). But since we don't know: O(n^x), where x is the number of input sets, and n is our worst case length (the length of the longest set). for example, in our case above, n = 4, x = 3, therefore we will have 4^3 theoretical execution steps (assuming the worst case scenario, although in reality we will probably have less execution steps).
 // It's the same for the space complexity: O(n^x)
+
+// permutations without repetitions:
+
+function getPermutations(options) {}
+
+const todoListItems = [
+	'Walk the dog',
+	'Clean the toilet',
+	'Buy groceries',
+	'Order food',
+];
+
+console.log(getPermutations(todoListItems));
