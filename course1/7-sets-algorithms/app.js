@@ -24,7 +24,7 @@ function cartesianTwoSets(setA, setB) {
 
 // limitation of this algo: we only take two input sets. these sets can be of any size, and they don't have to be of the same size, but we cannot take more than two sets as input.
 
-// time complexity: even though we have a nested loop, we don't have quadratic time complexity, because quadratic time complexity is ony the case if our nested loop operates on one input value (eg. we have one array, and we have a nested loop for the elements of that array (you go through the same array in the nested loop)), but in our case, since we have two arrays, we depend on two lengths. therefore our time complexity is O(n*m), where n is the length of the first set, and m is the lenght of the second set.
+// time complexity: even though we have a nested loop, we don't have quadratic time complexity, because quadratic time complexity is only the case if our nested loop operates on one input value (eg. we have one array, and we have a nested loop for the elements of that array (you go through the same array in the nested loop)), but in our case, since we have two arrays, we depend on two lengths. therefore our time complexity is O(n*m), where n is the length of the first set, and m is the lenght of the second set.
 
 // space complexity: the 'product' array is only created once. but we have something that grows with the input size: the nested array that we are pushing into the 'product' array for every nested loop iteration. therefore we have space complexity of O(n*m), because we create one new array (for every combination of our two sets) that is stored permanently in the 'product' array for the duration of the algo.
 
