@@ -1,5 +1,18 @@
 // cartesian product algo for just two sets:
 
+// simplest solution:
+function cartProductTwoSets(setA, setB) {
+	const product = [];
+
+	for (const setAEl of setA) {
+		for (const setBEl of setB) {
+			product.push([setAEl, setBEl]);
+		}
+	}
+	return product;
+}
+
+// from the former solution, make an ammendment, so it will work when we use it with the cartesian product algo without limits:
 function cartesianTwoSets(setA, setB) {
 	// we assume that we always get valid arrays, therefore we won't use 'if' checks to exit the function (return) if the arguments are invalid.
 
