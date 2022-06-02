@@ -20,9 +20,10 @@ function cartesianTwoSets(setA, setB) {
 	for (let setAEl of setA) {
 		// we want to check if setAEl is not an array (we do this to avoid problems when we use tempProduct for the  first time in the 'cartesian' function below (the spread operator could behave badly with strings, numbers, etc.)):
 		if (!Array.isArray(setAEl)) {
+			// note that we have to use 'let' in the loop above to be able to do the following:
 			setAEl = [setAEl];
 		}
-		for (let setBEl of setB) {
+		for (const setBEl of setB) {
 			product.push([...setAEl, setBEl]);
 			// we use the spread operator in setAEl to avoid combinations of arrays with non-arrays in the 'cartesian' function below
 		}
