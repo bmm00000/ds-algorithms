@@ -63,7 +63,7 @@ const colors = ['blue', 'red'];
 const sizes = ['m', 's', 'l', 'xl'];
 const styles = ['vneck', 'roundneck'];
 
-console.log(cartesian(colors, sizes, styles));
+// console.log(cartesian(colors, sizes, styles));
 
 // time complexity of cartesian product algo without limits: we will need the generalization approach we mentioned before, since now we have an unlimited amount of sets => O(n*m*q*...). therefore, we will assume that the length of the longest array is the length of all arrays. if we knew the number of sets in advance (for example, 3), then O(n^3). But since we don't know: O(n^x), where x is the number of input sets, and n is our worst case length (the length of the longest set). for example, in our case above, n = 4, x = 3, therefore we will have 4^3 theoretical execution steps (assuming the worst case scenario, although in reality we will probably have less execution steps).
 // It's the same for the space complexity: O(n^x)
@@ -100,11 +100,9 @@ const todoListItems = [
 	'Walk the dog',
 	'Clean the toilet',
 	'Buy groceries',
-	'Order food',
+	// 'Order food',
 ];
 
-console.log(getPermutations(todoListItems));
+// console.log(getPermutations(todoListItems));
 
 // we need to combine every item with all other items in all possible orders. that screams for a nested loop, but we don't know how many nested loops we will need, because we will need one nested loop per element in the input array. therefore, what we need is recursion: we can call ourselves, and we don't need to know how often that will happen, we just need some exit condition that makes sure we don't call ourselves anymore if we don't have a reason to call ourselves anymore.
-
-// watch again video 'permutations without repetitions'
