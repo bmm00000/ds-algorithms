@@ -70,7 +70,31 @@ console.log(cartesian(colors, sizes, styles));
 
 // permutations without repetitions:
 
-function getPermutations(options) {}
+function getPermutations(options) {
+	const permutations = [];
+
+	if (options.length === 1) {
+		return [options];
+	}
+
+	const partialPermutations = getPermutations(options.slice(1));
+
+	const firstOption = options[0];
+
+	for (let i = 0; i < partialPermutations.length; i++) {
+		const partialPermutation = partialPermutations[i];
+
+		for (let j = 0; j <= partialPermutation.length; j++) {
+			const permutationInFront = partialPermutation.slice(0, j);
+			const permutationAfter = partialPermutation.slice(j);
+			permutations.push(
+				permutationInFront.concat([firstOption], permutationAfter)
+			);
+		}
+	}
+
+	return permutations;
+}
 
 const todoListItems = [
 	'Walk the dog',
@@ -80,3 +104,7 @@ const todoListItems = [
 ];
 
 console.log(getPermutations(todoListItems));
+
+// we need to combine every item with all other items in all possible orders. that screams for a nested loop, but we don't know how many nested loops we will need, because we will need one nested loop per element in the input array. therefore, what we need is recursion: we can call ourselves, and we don't need to know how often that will happen, we just need some exit condition that makes sure we don't call ourselves anymore if we don't have a reason to call ourselves anymore.
+
+// watch again video 'permutations without repetitions'
