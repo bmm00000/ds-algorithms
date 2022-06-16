@@ -106,3 +106,35 @@ const todoListItems = [
 // console.log(getPermutations(todoListItems));
 
 // we need to combine every item with all other items in all possible orders. that screams for a nested loop, but we don't know how many nested loops we will need, because we will need one nested loop per element in the input array. therefore, what we need is recursion: we can call ourselves, and we don't need to know how often that will happen, we just need some exit condition that makes sure we don't call ourselves anymore if we don't have a reason to call ourselves anymore.
+
+// how about time complexity?
+// for 4 items, we have 24 combinations: 4 * 3 * 2 * 1
+// for 5 items, we have 120 combinations: 5 * 3 * 2 * 1
+// this even larger than exponential, this is factorial time complexity.
+// time complexity: factorial time complexity: O(n!). THIS IS HORRIBLE, BUT THERE'S NO BETTER ALTERNATIVE TO THIS ALGO: you won't find an algo that derives all those permutations with less than factorial time complexity. this will be very slow: if you add a few more items, you may end up crashing your browser or your entire machine.
+
+// watch video: Permutations without Repetitions - Big O
+
+// permutations with repetitions:
+
+function permWithRep(options, length) {
+	const permutations = [];
+
+	if (length === 1) {
+		return options.map((option) => [option]);
+	}
+
+	const partialPermutations = permWithRep(options, length - 1);
+
+	for (const element of partialPermutations) {
+		for (const option of options) {
+			permutations.push(element.concat([option]));
+		}
+		// the course does these nested loops the other way around, but I think my version is better!
+	}
+
+	return permutations;
+}
+
+const items = [1, 2, 3];
+console.log(permWithRep(items, 3));
