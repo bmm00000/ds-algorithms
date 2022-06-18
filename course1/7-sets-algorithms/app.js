@@ -126,9 +126,9 @@ function permWithRep(options, length) {
 
 	const partialPermutations = permWithRep(options, length - 1);
 
-	for (const element of partialPermutations) {
+	for (const existingPermutation of partialPermutations) {
 		for (const option of options) {
-			permutations.push(element.concat([option]));
+			permutations.push(existingPermutation.concat([option]));
 		}
 		// the course does these nested loops the other way around, but I think my version is better!
 	}
@@ -136,5 +136,33 @@ function permWithRep(options, length) {
 	return permutations;
 }
 
-const items = [1, 2, 3];
-console.log(permWithRep(items, 3));
+const digits = [1, 2, 3];
+const resultLength = 3;
+// console.log(permWithRep(digits, resultLength));
+
+// course's version:
+
+function permWithRepCourse(options, length) {
+	const permutations = [];
+
+	if (length === 1) {
+		return options.map((option) => [option]);
+	}
+
+	const partialPermutations = permWithRepCourse(options, length - 1);
+
+	for (const option of options) {
+		for (const existingPermutation of partialPermutations) {
+			permutations.push([option].concat(existingPermutation));
+		}
+	}
+
+	return permutations;
+}
+
+console.log(permWithRepCourse(digits, resultLength));
+
+// time complexity:
+// it depends on both the length of 'options', and also on the 'length'
+// if we test how many permutations we have increasing just a unity of 'options' or 'length', we will see how fast the number of permutations grows (btw, that's why a longer password is much safer than a shorter password). therefore:
+// time complexity: O(n^r) => n is the number of options, r is the length (you can see this by testing small numbers of n and r)
