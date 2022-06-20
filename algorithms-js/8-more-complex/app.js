@@ -53,3 +53,6 @@ console.log(sack);
 // watch again 'An Improved Knapsack Algorithm'
 
 // we apply memoization:
+function knapsack(items, cap, index) {
+	const mem = knapsackFn(items, cap, index);
+}
