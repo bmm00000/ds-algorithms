@@ -9,7 +9,7 @@ in the case of arrays, 'ordered lists of data' doesn't mean that the data is sor
 however, this course will be mainly about custom data structures (data structures that you can build on your own, based on the built-in data structures of js, ie. arrays, objects, sets, maps)
 
 ARRAYS:
-size (length) adjusts dynamically (automatically). in other programming language, you have to define the length of the array to be able to use it. this makes our lives as developers easier, but also it's important for memory management and performance optimizations (js automatically takes care that the array doesn't occupy too much memory). Deletion and finding of elements can require extra work: this means that it can be a bit more performance intensive
+size (length) adjusts dynamically (automatically). in other programming languages, you have to define the length of the array to be able to use it. this makes our lives as developers easier, but also it's important for memory management and performance optimizations (js automatically takes care that the array doesn't occupy too much memory). Deletion and finding of elements can require extra work: this means that it can be a bit more performance intensive
 
 the built-in 'find' method is useful in certain situations, eg, when you have an array full of objects, and you want to find a specific object by one value of one property of the object.
 what's the problem with methods such as 'findIndex' and 'find'? we have to go through all the elements of the array and apply the callback function to all of them, until the condition that we specify is true. therefore, these kind of methods can be performance intensive. the same applies for deleting elements (eg. 'splice' method): this can be performance intensive because js has to move all the elements after the element that was removed (change their indexes).
@@ -19,3 +19,10 @@ sets are also about lists of data, but they work a bit differently than arrays. 
 as you can see in the slide, duplicate items are not allowed ('pizza' won't be added a second time).
 even though sets are iterable (ie. you can use a 'for of' loop), the order could be different for different loops, ie. the order is not guaranteed.
 deletion and finding elements is easier and faster than with arrays (the reason being that the order does not matter; since the position of the value does not matter, sets can store data more efficiently: it doesn't need to go through all the values (as it happens with arrays when trying to find a value), or to move all subsequent values (as it happens with arrays when deleting a value): it has other techniques for quickly finding or deleting a value). see 'sets.js'.
+
+OBJECTS:
+keys are unique, values are not (you cannot have two keys with the same name (if you do this, the second property would override the first one))
+
+MAPS:
+keys are unique, values are not: similarly to objects, you cannot have two keys with the same name (if you do this, the second property would override the first one)
+maps are meant for pure data storage: behind the scenes, maps are actually objects (because everything in js at the end is an object), but they are implemented such that the map object is just a data store, so you can't add extra functionality as you can do with an object (you could store a function as a value, but that function would not be able to interact with the other key value pairs of the map). therefore, maps are meant to be just data stores; objects are not meant to be just data stores, although they happen to work well as data stores as well. 
