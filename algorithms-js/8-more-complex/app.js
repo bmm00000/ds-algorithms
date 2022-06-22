@@ -54,5 +54,8 @@ console.log(sack);
 
 // we apply memoization:
 function knapsack(items, cap, index) {
-	const mem = knapsackFn(items, cap, index);
+	const mem = Array.from(Array(cap + 1), () =>
+		Array(items.length).fill(undefined)
+	);
+	return knapsackFn(items, cap, index);
 }
