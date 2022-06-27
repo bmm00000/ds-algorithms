@@ -31,4 +31,6 @@ typo in slides?: it says 'Element access via key', but in reality, it's via meth
 WEAKSET AND WEAKMAP:
 values in the case of weaksets, and keys in the case of weakmaps, are only 'weakly referenced', ie. the js garbage collector (which is part of the js engine (eg. in the browser)) can delete values and keys if not used anywhere else in the app (freeing that space in memory). therefore, weaksets and weakmaps can give you memory advantage, because that space in memory can be cleared up. if you have a very performance intensive app that uses a lot of memory (ie. you are building your own framework and you need every optimization possible), then weakset and weakmap will help you with memory management.
 
+//
+
 watch 'Linked Lists (A First Custom Data Structures)'
