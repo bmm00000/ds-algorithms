@@ -41,6 +41,9 @@ class LinkedList {
 		while (curNode.next) {
 			if (curNode.next.value === value) {
 				curNode.next = curNode.next.next;
+				if (curNode.next.value === value) {
+					curNode.next = curNode.next.next;
+				}
 			}
 			curNode = curNode.next;
 		}
