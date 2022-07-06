@@ -27,13 +27,57 @@ class LinkedList {
 			this.tail = newNode;
 		}
 	}
+	// now we are going to insert a new node after the first occurance of the afterValue:
+	// my solution:
+	// insertAfter(value, afterValue) {
+	// 	if (!this.head) {
+	// 		return null;
+	// 	}
+
+	// 	let curNode = this.head;
+
+	// 	while (curNode) {
+	// 		if (curNode.value === afterValue) {
+	// 			const newNode = { value: value, next: curNode.next };
+	// 			curNode.next = newNode;
+	// 		}
+	// 		curNode = curNode.next;
+	// 	}
+	// }
+
+	// the course's solution:
+	insertAfter(value, afterValue) {
+		const existingValue = this.find(afterValue);
+
+		if (existingValue) {
+			const newNode = { value: value, next: existingValue.next };
+			existingValue.next = newNode;
+		}
+	}
+
+	// now we are going to find the first occurance of the value:
+	find(value) {
+		if (!this.head) {
+			return null;
+		}
+
+		let curNode = this.head;
+
+		while (curNode) {
+			if (curNode.value === value) {
+				return curNode;
+			}
+			curNode = curNode.next;
+		}
+		return null;
+	}
 
 	delete(value) {
 		if (!this.head) {
 			return;
 		}
 
-		if (this.head.value === value) {
+		while (this.head && this.head.value === value) {
 			this.head = this.head.next;
 		}
 
@@ -41,11 +85,13 @@ class LinkedList {
 		while (curNode.next) {
 			if (curNode.next.value === value) {
 				curNode.next = curNode.next.next;
-				if (curNode.next.value === value) {
-					curNode.next = curNode.next.next;
-				}
+			} else {
+				curNode = curNode.next;
 			}
-			curNode = curNode.next;
+		}
+
+		if (this.tail.value === value) {
+			this.tail = curNode;
 		}
 	}
 

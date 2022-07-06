@@ -34,3 +34,4 @@ values in the case of weaksets, and keys in the case of weakmaps, are only 'weak
 //
 
 watch 'Linked Lists (A First Custom Data Structures)'
+watch deleting nodes
