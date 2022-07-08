@@ -17,16 +17,16 @@ what's the problem with methods such as 'findIndex' and 'find'? we have to go th
 SETS:
 sets are also about lists of data, but they work a bit differently than arrays. to create a set, we have to use the 'Set' constructor function with the 'new' keyword, ie. we don't have a shortcut, eg. [], for arrays.
 as you can see in the slide, duplicate items are not allowed ('pizza' won't be added a second time).
-even though sets are iterable (ie. you can use a 'for of' loop), the order could be different for different loops, ie. the order is not guaranteed.
+even though sets are iterable (ie. you can use a 'for of' loop), the order could be different for different loops, ie. the INSERTION order is not guaranteed.
 deletion and finding elements is easier and faster than with arrays (the reason being that the order does not matter; since the position of the value does not matter, sets can store data more efficiently: it doesn't need to go through all the values (as it happens with arrays when trying to find a value), or to move all subsequent values (as it happens with arrays when deleting a value, eg. with 'splice'): it has other techniques for quickly finding or deleting a value). see 'sets.js'.
 
 OBJECTS:
-keys are unique, values are not (you cannot have two keys with the same name (if you do this, the second property would override the first one))
+keys are unique, values are not (you cannot have two keys with the same name (if you do this, the second property would override the first one)). see 'objects.js'.
 
 MAPS:
 keys are unique, values are not: similarly to objects, you cannot have two keys with the same name (if you do this, the second property would override the first one)
 maps are meant for pure data storage: behind the scenes, maps are actually objects (because everything in js at the end is an object), but they are implemented such that the map object is just a data store, so you can't add extra functionality as you can do with an object (you could store a function as a value, but that function would not be able to interact with the other key value pairs of the map). therefore, maps are meant to be just data stores; objects are not meant to be just data stores, although they happen to work well as data stores as well. with the map's methods, we can access, delete, etc. data faster than objects, but the difference in performance would only matter if we are talking about huge amounts of data (as it happens with arrays vs sets). therefore, most of the time, you are going to use objects in js. 
-typo in slides?: it says 'Element access via key', but in reality, it's via methods (like 'get')
+typo in slides?: it says 'Element access via key', but in reality, it's via methods (like 'get'). see 'maps.js'
 
 WEAKSET AND WEAKMAP:
 values in the case of weaksets, and keys in the case of weakmaps, are only 'weakly referenced', ie. the js garbage collector (which is part of the js engine (eg. in the browser)) can delete values and keys if not used anywhere else in the app (freeing that space in memory). therefore, weaksets and weakmaps can give you memory advantage, because that space in memory can be cleared up. if you have a very performance intensive app that uses a lot of memory (ie. you are building your own framework and you need every optimization possible), then weakset and weakmap will help you with memory management.
@@ -35,3 +35,5 @@ values in the case of weaksets, and keys in the case of weakmaps, are only 'weak
 
 watch 'Linked Lists (A First Custom Data Structures)'
 watch deleting nodes
+watch  Linked Lists: Why and Time Complexity
+watch Linked Lists vs Arrays
