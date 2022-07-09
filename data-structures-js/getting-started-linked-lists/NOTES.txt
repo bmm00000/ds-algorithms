@@ -2,7 +2,7 @@ data structures are the things in your code that allow you to store, retreive, d
 
 in js, we have 4 main built-in data structures: arrays, objects, maps, sets.
 
-for the situations when you don't care just about the values, and whether they are ordered or not, but you want to map them to an identifier: you want key value pairs of ordered or unordered data. in this situations, you use maps (ordered data) or objects (unordered data).
+for the situations when you don't care just about the values, but you want to map them to an identifier: you want key value pairs of ordered or unordered data. in this situations, you use maps (ordered data) or objects (unordered data).
 
 in the case of arrays, 'ordered lists of data' doesn't mean that the data is sorted (eg. numbers in the arrays are sorted), but that the insertion order is memorized (ie. each element has specific index, and that location in the array is kept)
 
@@ -30,6 +30,7 @@ typo in slides?: it says 'Element access via key', but in reality, it's via meth
 
 WEAKSET AND WEAKMAP:
 values in the case of weaksets, and keys in the case of weakmaps, are only 'weakly referenced', ie. the js garbage collector (which is part of the js engine (eg. in the browser)) can delete values and keys if not used anywhere else in the app (freeing that space in memory). therefore, weaksets and weakmaps can give you memory advantage, because that space in memory can be cleared up. if you have a very performance intensive app that uses a lot of memory (ie. you are building your own framework and you need every optimization possible), then weakset and weakmap will help you with memory management.
+watch WeakSet and WeakMap
 
 //
 

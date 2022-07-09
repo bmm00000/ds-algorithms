@@ -95,6 +95,26 @@ class LinkedList {
 		}
 	}
 
+	delete(value) {
+		if (!this.head) {
+			return null;
+		}
+
+		if (this.head.value === value) {
+			this.head = this.head.next;
+			return;
+		}
+
+		let curNode = this.head;
+
+		while (curNode.next) {
+			if (curNode.next.value === value) {
+				curNode.next = curNode.next.next;
+			}
+			curNode = curNode.next;
+		}
+	}
+
 	toArray() {
 		const elements = [];
 		let curNode = this.head;
