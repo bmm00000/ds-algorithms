@@ -85,33 +85,15 @@ class LinkedList {
 		while (curNode.next) {
 			if (curNode.next.value === value) {
 				curNode.next = curNode.next.next;
+				// if we get here, the node with the value will be disconnected, and eventually garbage collected.
 			} else {
 				curNode = curNode.next;
 			}
 		}
 
+		// we also need to update the tail, if we happened to delete the last node:
 		if (this.tail.value === value) {
 			this.tail = curNode;
-		}
-	}
-
-	delete(value) {
-		if (!this.head) {
-			return null;
-		}
-
-		if (this.head.value === value) {
-			this.head = this.head.next;
-			return;
-		}
-
-		let curNode = this.head;
-
-		while (curNode.next) {
-			if (curNode.next.value === value) {
-				curNode.next = curNode.next.next;
-			}
-			curNode = curNode.next;
 		}
 	}
 

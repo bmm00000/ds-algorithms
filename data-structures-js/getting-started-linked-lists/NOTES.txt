@@ -35,6 +35,5 @@ watch WeakSet and WeakMap
 //
 
 watch 'Linked Lists (A First Custom Data Structures)'
-watch deleting nodes
 watch  Linked Lists: Why and Time Complexity
 watch Linked Lists vs Arrays
