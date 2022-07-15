@@ -22,13 +22,15 @@ function findFirstRepObj(str) {
 }
 // O(n)
 
-console.log(findFirstRepLoop('hello'));
-console.log(findFirstRepObj('hey there'));
+// console.log(findFirstRepLoop('hello'));
+// console.log(findFirstRepObj('hey there'));
 
 class HashTable {
 	constructor() {
 		this.size = 1000;
-		this.buckets = Array(1000).fill(null);
+		this.buckets = Array(1000)
+			.fill(null)
+			.map(() => []);
 	}
 
 	hash(key) {
@@ -44,11 +46,41 @@ class HashTable {
 
 	set(key, value) {
 		const index = this.hash(key);
-		this.buckets[index] = value;
+		this.buckets[index].push(value);
 	}
 
 	get(key) {
 		const index = this.hash(key);
 		return this.buckets[index];
 	}
+
+	showInfo() {
+		for (const key in this.buckets) {
+			if (this.buckets[key] !== null) {
+				console.log(key, this.buckets[key]);
+			}
+		}
+	}
 }
+
+function findFirstRepTable(str) {
+	const table = new HashTable();
+
+	for (let char of str) {
+		if (table.get(char)) {
+			return char;
+		}
+
+		table.set(char, true);
+	}
+}
+
+// console.log(findFirstRepTable('hahaha'));
+
+const table1 = new HashTable();
+
+for (const char of 'academind') {
+	table1.set(char, char);
+}
+
+table1.showInfo();
