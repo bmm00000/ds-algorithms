@@ -47,9 +47,6 @@ class HashTable {
 	set(key, value) {
 		const index = this.hash(key);
 		const bucketArray = this.buckets[index];
-		if (!bucketArray.includes(value)) {
-			bucketArray.push(value);
-		}
 	}
 
 	get(key) {
