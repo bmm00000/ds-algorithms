@@ -27,10 +27,8 @@ function findFirstRepObj(str) {
 
 class HashTable {
 	constructor() {
-		this.size = 1000;
-		this.buckets = Array(1000)
-			.fill(null)
-			.map(() => []);
+		this.size = 10;
+		this.buckets = Array(10).fill(null);
 	}
 
 	hash(key) {
@@ -45,13 +43,24 @@ class HashTable {
 	}
 
 	set(key, value) {
-		const index = this.hash(key);
-		const bucketArray = this.buckets[index];
+		let index = this.hash(key);
+
+		if (this.buckets[index] === null) {
+			this.buckets[index] = { key, val: value };
+		} else {
+			while (this.buckets[index] !== null) {
+				index++;
+			}
+			this.buckets[index] = { key, val: value };
+		}
 	}
 
 	get(key) {
-		const index = this.hash(key);
-		return this.buckets[index];
+		let index = this.hash(key);
+		for (let index = 0; index < this.buckets.length; index++) {
+			if (this.buckets[index].key === key) {
+			}
+		}
 	}
 
 	showInfo() {
