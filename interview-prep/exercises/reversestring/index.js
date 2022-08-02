@@ -25,12 +25,14 @@ function reverse(str) {
 	// let i = 0;
 	// while (i < str.length) {
 	// 	reversed = str[i] + reversed;
-	// 	// debugger;
+	// 	debugger;
 	// 	i++;
 	// }
 	// return reversed;
 	//
 	// return str.split('').reduce((reversed, char) => char + reversed, '');
+	//
+	//
 }
 
 // we have used two approaches: iterative (three kinds of loops), and methods (two options with methods).
