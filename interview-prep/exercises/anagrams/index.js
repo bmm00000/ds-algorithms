@@ -55,6 +55,36 @@ function anagrams(stringA, stringB) {
 	//
 	//
 	//
+	// return compareMaps(
+	// 	mapString(cleanString(stringA)),
+	// 	mapString(cleanString(stringB))
+	// );
+	// function cleanString(string) {
+	// 	return string.replace(/[^\w]/g, '').toLowerCase();
+	// }
+	// function mapString(string) {
+	// 	const strMap = {};
+	// 	for (let char of string) {
+	// 		strMap[char] = strMap[char]++ || 1;
+	// 	}
+	// 	return strMap;
+	// }
+	// function compareMaps(mapA, mapB) {
+	// 	for (let char in mapA) {
+	// 		if (mapB[char] !== mapA[char]) {
+	// 			return false;
+	// 		}
+	// 	}
+	// 	return Object.keys(mapA).length === Object.keys(mapB).length;
+	// }
+
+	//
+
+	return cleanString(stringA) === cleanString(stringB);
+
+	function cleanString(string) {
+		return string.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
+	}
 }
 
 module.exports = anagrams;
