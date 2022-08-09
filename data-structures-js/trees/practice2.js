@@ -23,17 +23,13 @@ class Node {
 		);
 
 		if (existingChildNode) {
-			existingChildNode.addNode(segments.slice(1).join('/'));
+			existingChildNode.addNode(segments.splice(1).join('/'));
 		} else {
 			const node = new Node(segments[0], this);
 			node.addNode(segments.slice(1).join('/'));
 			this.children.push(node);
 			return { node, index: this.children.length - 1 };
 		}
-	}
-
-	removeNode(index) {
-		this.children.splice(index, 1);
 	}
 }
 
@@ -46,11 +42,3 @@ class Tree {
 		this.root.addNode(path);
 	}
 }
-
-const filesystem = new Tree('/');
-filesystem.add('documents/taxes/2020.txt');
-filesystem.add('documents/taxes/2021.txt');
-filesystem.add('games/war/cod.exe');
-filesystem.add('games/war/cod2.exe');
-
-console.log(filesystem);
